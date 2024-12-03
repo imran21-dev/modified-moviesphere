@@ -1,9 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
-import fakeUser from "../assets/fake-user.jpg";
-import { RiMenu4Fill, RiUser6Line } from "react-icons/ri";
+// import fakeUser from "../assets/fake-user.jpg";
+import { RiMenu4Fill,  } from "react-icons/ri";
 import { CiSearch, CiUser } from "react-icons/ci";
 import { useState } from "react";
-import { BiUser } from "react-icons/bi";
+
 import { FaCloudMoon } from "react-icons/fa";
 import { BsCloudSunFill } from "react-icons/bs";
 
@@ -14,7 +14,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="">
+    <div className="absolute top-0 left-0 z-50 w-full">
       <div className="navbar w-11/12 mx-auto">
         <div className="navbar-start w-max">
           <div className="dropdown">
@@ -143,7 +143,7 @@ const Navbar = () => {
             disabled={hide ? false : true}
             className={
               hide
-                ? "bg-primary w-52 duration-300 border border-secondary py-1 focus:outline-none px-2 mr-2"
+                ? "bg-transparent w-52 duration-300 border border-secondary py-1 focus:outline-none px-2 mr-2"
                 : "bg-transparent -ml-5 w-0 duration-300 border-none border-secondary py-1 focus:outline-none px-2 mr-2"
             }
             type="text"
