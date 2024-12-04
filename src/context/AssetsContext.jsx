@@ -1,9 +1,14 @@
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithPopup } from "firebase/auth";
 import PropTypes from "prop-types";
-import { createContext, useState } from "react";
-
+import { createContext, useEffect, useState } from "react";
+import { auth } from "../provider/firebase.config";
+import { GoogleAuthProvider } from "firebase/auth";
 export const ThemeContext = createContext(null)
 
 const AssetsContext = ({children}) => {
+
+    const [user, setUser] = useState(null)
+    const [loadPrivate, setLoadPrivate] = useState(false)
 
     const [releaseYear, setReleaseYear] = useState(null)
     const [ratingStar, setRatingStar] = useState(null)
@@ -12,6 +17,26 @@ const AssetsContext = ({children}) => {
     const [releaseTool, setReleaseTool] = useState(false)
     const [ratingTool, setRatingTool] = useState(false)
     const [genreTooltip, setGenreTooltip] = useState(false)
+
+    const createAccount = (email, password) => {
+        return createUserWithEmailAndPassword(auth, email, password)
+    }
+    const googleProvider = new GoogleAuthProvider();
+    const signInWithGoogle = () => {
+        return signInWithPopup(auth, googleProvider)
+    }
+
+
+
+    useEffect(()=>{
+        const unsubscribe = onAuthStateChanged(auth, currentUser => {
+            setUser(currentUser)
+            setLoadPrivate(true)
+        })
+        return ()=> {
+            unsubscribe()
+        }
+    },[])
 
     const themes = {
         releaseYear,
@@ -25,10 +50,14 @@ const AssetsContext = ({children}) => {
         ratingTool,
         setRatingTool,
         genreTooltip,
-        setGenreTooltip
+        setGenreTooltip,
+        createAccount,
+        signInWithGoogle,
+        user,
+        loadPrivate
 
     }
-   
+   console.log(user)
     return (
         <ThemeContext.Provider value={themes}>
             {children}

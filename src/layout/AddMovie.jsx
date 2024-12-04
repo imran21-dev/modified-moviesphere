@@ -228,7 +228,7 @@ const AddMovie = () => {
                   ? false
                   : true
               }
-              className="btn  bg-accent/90 border-none rounded-none hover:text-primary hover:bg-[#BEBEBE] text-neutral"
+              className="btn  bg-accent/90 border-none rounded-none hover:bg-[#BEBEBE] text-white"
               type="submit"
               value="Upload"
             />
