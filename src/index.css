@@ -17,4 +17,20 @@ body{
  color: #ff0000e8;
 }
 
+.number{
+  -moz-appearance: textfield; 
+  -webkit-appearance: none; 
+  appearance: none;
+}
+.number::-webkit-inner-spin-button,
+.number::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
+
+
+
+.l{
+color: #494949;
+}

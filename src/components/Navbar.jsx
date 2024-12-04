@@ -2,10 +2,11 @@ import { Link, NavLink } from "react-router-dom";
 // import fakeUser from "../assets/fake-user.jpg";
 import { RiMenu4Fill,  } from "react-icons/ri";
 import { CiSearch, CiUser } from "react-icons/ci";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { FaCloudMoon } from "react-icons/fa";
 import { BsCloudSunFill } from "react-icons/bs";
+import Headroom from "react-headroom";
 
 const Navbar = () => {
   const [hide, setHide] = useState(false);
@@ -13,8 +14,26 @@ const Navbar = () => {
     setHide(!hide);
   };
 
+
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+
   return (
-    <div className="absolute top-0 left-0 z-50 w-full">
+    <Headroom className="absolute top-0 left-0 z-50 w-full ">
+
+    <div className={scrollPosition === 0 ? 'bg-gradient-to-b from-primary to-transparent' :'bg-gradient-to-b from-primary to-transparent backdrop-blur-md '}>
       <div className="navbar w-11/12 mx-auto">
         <div className="navbar-start w-max">
           <div className="dropdown">
@@ -99,7 +118,7 @@ const Navbar = () => {
             </li>
             <li className="">
               <NavLink
-                to="/add-movies"
+                to="/add-movie"
                 className="py-0 duration-300 rounded-none hover:text-accent px-3"
               >
                 Add Movie
@@ -132,8 +151,8 @@ const Navbar = () => {
           </Link>
 
           <Link
-            to="/login"
-            className="font-medium btn btn-outline hover:bg-[#BEBEBE] hover:border-[#BEBEBE] min-h-max h-max duration-300   py-[6px] rounded-none px-5 text-sm mr-5"
+            to="/register"
+            className="font-medium btn border-secondary btn-outline hover:bg-[#BEBEBE] hover:border-[#BEBEBE] min-h-max h-max duration-300   py-[6px] rounded-none px-5 text-sm mr-5"
           >
             Register
           </Link>
@@ -168,6 +187,8 @@ const Navbar = () => {
         </div>
       </div>
     </div>
+    </Headroom>
+
   );
 };
 

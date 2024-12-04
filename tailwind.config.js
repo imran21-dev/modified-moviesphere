@@ -16,10 +16,11 @@ export default {
       {
         light: {
           primary: '#ffffff',
-          secondary: '#888888',
+          secondary: '#e9e9e9',
           accent: '#ff0000e8',
           neutral: '#000000',
           'base-100': '#ffffff', 
+          'placeholder': '#bababa'
         
       
         },
@@ -29,6 +30,8 @@ export default {
           accent: '#ff0000e8',
           neutral: '#ffffff',
           'base-100': '#000000',
+          'placeholder': '#494949'
+
        
          
         },

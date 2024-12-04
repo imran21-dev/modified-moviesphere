@@ -10,6 +10,8 @@ import {
 } from "react-router-dom";
 import App from './App';
 import Home from './layout/Home';
+import AddMovie from './layout/AddMovie';
+import AssetsContext from './context/AssetsContext';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>
+      },
+      {
+        path: '/add-movie',
+        element: <AddMovie></AddMovie>
       }
     ]
   },
@@ -26,6 +32,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+      <AssetsContext>
       <RouterProvider router={router} />
+      </AssetsContext>
   </StrictMode>,
 )
