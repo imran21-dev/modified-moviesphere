@@ -28,6 +28,12 @@ body{
   margin: 0;
 }
 
+.userImg:hover .userName{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ 
+}
 
 
 

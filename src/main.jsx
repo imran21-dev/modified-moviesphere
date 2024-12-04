@@ -13,6 +13,8 @@ import Home from './layout/Home';
 import AddMovie from './layout/AddMovie';
 import AssetsContext from './context/AssetsContext';
 import Register from './layout/Register';
+import AddMoviePrivate from './private/AddMoviePrivate';
+import Login from './layout/Login';
 
 const router = createBrowserRouter([
   {
@@ -25,11 +27,15 @@ const router = createBrowserRouter([
       },
       {
         path: '/add-movie',
-        element: <AddMovie></AddMovie>
+        element: <AddMoviePrivate><AddMovie></AddMovie></AddMoviePrivate>
       },
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: '/login',
+        element: <Login></Login>
       }
     ]
   },

@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithPopup } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import PropTypes from "prop-types";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../provider/firebase.config";
@@ -21,6 +21,11 @@ const AssetsContext = ({children}) => {
     const createAccount = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
+
+    const loginAccount = (email, password) => {
+        return signInWithEmailAndPassword(auth, email, password)
+    }
+
     const googleProvider = new GoogleAuthProvider();
     const signInWithGoogle = () => {
         return signInWithPopup(auth, googleProvider)
@@ -54,10 +59,11 @@ const AssetsContext = ({children}) => {
         createAccount,
         signInWithGoogle,
         user,
-        loadPrivate
+        loadPrivate,
+        loginAccount
 
     }
-   console.log(user)
+
     return (
         <ThemeContext.Provider value={themes}>
             {children}

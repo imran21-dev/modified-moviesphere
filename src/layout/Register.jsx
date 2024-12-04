@@ -1,5 +1,5 @@
 import { CiLink, CiLock, CiMail, CiUser } from "react-icons/ci";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import google from '../assets/google.png'
 import { useContext, useState } from "react";
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
@@ -9,7 +9,9 @@ import { updateProfile } from "firebase/auth";
 import { auth } from "../provider/firebase.config";
 
 const Register = () => {
-
+    const {state} = useLocation()
+      const navigate = useNavigate()
+     
     const [passValid, setPassValid] = useState(true)
     const handlePassword = (e) => {
         const validatePassword = (value) => {
@@ -54,13 +56,30 @@ const Register = () => {
     
 
         createAccount(email, password)
-        .then((userCredential) => {
-            const user = userCredential.user;
+        .then(() => {
+            
             updateProfile(auth.currentUser, {
                 displayName : name,
                 photoURL: photo
             })
-            console.log(user)
+            .then(() => {
+                if (state) {
+                    navigate(state.visit)
+                }else{
+                    navigate('/')
+                }
+            })
+            .catch(error => {
+                const errorCode = error.code;
+                Swal.fire({
+                    title: "Failed !",
+                    text: `${errorCode}`,
+                    icon: "error",
+                    confirmButtonText: 'Retry'
+    
+                  });
+            })
+           
             
           })
           .catch((error) => {
@@ -81,11 +100,13 @@ const Register = () => {
 
     const openPopup = () => {
         signInWithGoogle()
-        .then((userCredential) => {
+        .then(() => {
             
-            const user = userCredential.user;
-         
-            console.log(user)
+            if (state) {
+                navigate(state.visit)
+            }else{
+                navigate('/')
+            }
             
           })
           .catch((error) => {
@@ -187,7 +208,7 @@ const Register = () => {
           
          <button disabled={passValid ? false : true} className="btn bg-accent/90 rounded-none min-h-max h-max py-3 text-white border-none hover:bg-[#BEBEBE]">Create</button>
         </div>
-        <p className="text-xs py-2 text-center">Already have an account? <Link className="font-semibold hover:text-accent/90" to='/login'>Login</Link></p>
+        <p className="text-xs py-2 text-center">Already have an account? <Link className="font-semibold hover:text-accent/90" state={state ? state : null} to='/login'>Login</Link></p>
 
       
              </form>
