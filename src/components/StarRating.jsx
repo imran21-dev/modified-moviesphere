@@ -1,10 +1,10 @@
-import { useContext, useState } from "react";
+import { useContext, } from "react";
 import Rating from "react-rating";
 import { ThemeContext } from "../context/AssetsContext";
 
 const StarRating = () => {
-  const {setRatingStar,ratingTool,setRatingTool} = useContext(ThemeContext)
-  const [rating, setRating] = useState(0);
+  const {setRatingStar,ratingTool,setRatingTool,setRating, rating} = useContext(ThemeContext)
+  
 
 
   const handleRating = (value) => {

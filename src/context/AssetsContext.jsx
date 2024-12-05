@@ -10,6 +10,11 @@ const AssetsContext = ({children}) => {
     const [user, setUser] = useState(null)
     const [loadPrivate, setLoadPrivate] = useState(false)
 
+    const [release, setRelease] = useState(false)
+    const [rating, setRating] = useState(0);
+    const [selectedGenre, setSelectedGenre] = useState([]);
+
+
     const [releaseYear, setReleaseYear] = useState(null)
     const [ratingStar, setRatingStar] = useState(null)
     const [genreArray, setGenreArray] = useState([])
@@ -60,7 +65,13 @@ const AssetsContext = ({children}) => {
         signInWithGoogle,
         user,
         loadPrivate,
-        loginAccount
+        loginAccount,
+        release,
+        setRelease,
+        rating,
+        setRating,
+        selectedGenre,
+        setSelectedGenre
 
     }
 

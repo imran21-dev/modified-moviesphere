@@ -14,8 +14,8 @@ const CategorySection = () => {
              <p>Explore and pick your favorite movie category!</p>
              <section className="grid grid-cols-4 gap-6 mx-auto py-10 w-8/12">
 
-                <div className="flex bg-secondary p-6 gap-8 items-center justify-center">
-                    <span className="bg-primary/50 backdrop-blur-md text-accent/90 text-3xl p-5">
+                <div className="flex bg-secondary/40 backdrop-blur-md rounded-3xl p-6 gap-8 items-center justify-center">
+                    <span className="bg-primary rounded-2xl text-accent/90 text-3xl p-5">
                     <GiPistolGun />
                     </span>
                     <div className="text-left">
@@ -25,8 +25,8 @@ const CategorySection = () => {
                     </div>
                 </div>
 
-                <div className="flex bg-secondary p-6 gap-8 items-center justify-center">
-                    <span className="bg-primary/50 backdrop-blur-md text-accent/90 text-3xl p-5">
+                <div className="flex bg-secondary/40 backdrop-blur-md rounded-3xl p-6 gap-8 items-center justify-center">
+                    <span className="bg-primary rounded-2xl text-accent/90 text-3xl p-5">
                     <MdAutoFixHigh />
                     </span>
                     <div className="text-left">
@@ -36,8 +36,8 @@ const CategorySection = () => {
                     </div>
                 </div>
 
-                <div className="flex bg-secondary p-6 gap-8 items-center justify-center">
-                    <span className="bg-primary/50 backdrop-blur-md text-accent/90 text-3xl p-5">
+                <div className="flex bg-secondary/40 backdrop-blur-md rounded-3xl p-6 gap-8 items-center justify-center">
+                    <span className="bg-primary rounded-2xl text-accent/90 text-3xl p-5">
                     <MdTheaterComedy />
                     </span>
                     <div className="text-left">
@@ -47,8 +47,8 @@ const CategorySection = () => {
                     </div>
                 </div>
 
-                <div className="flex bg-secondary p-6 gap-8 items-center justify-center">
-                    <span className="bg-primary/50 backdrop-blur-md text-accent/90 text-3xl p-5">
+                <div className="flex bg-secondary/40 backdrop-blur-md rounded-3xl p-6 gap-8 items-center justify-center">
+                    <span className="bg-primary rounded-2xl text-accent/90 text-3xl p-5">
                     <FaUserFriends />
                     </span>
                     <div className="text-left">
@@ -58,8 +58,8 @@ const CategorySection = () => {
                     </div>
                 </div>
 
-                <div className="flex bg-secondary p-6 gap-8 items-center justify-center">
-                    <span className="bg-primary/50 backdrop-blur-md text-accent/90 text-3xl p-5">
+                <div className="flex bg-secondary/40 backdrop-blur-md rounded-3xl p-6 gap-8 items-center justify-center">
+                    <span className="bg-primary rounded-2xl text-accent/90 text-3xl p-5">
                     <MdDiscount />
                     </span>
                     <div className="text-left">
@@ -69,8 +69,8 @@ const CategorySection = () => {
                     </div>
                 </div>
 
-                <div className="flex bg-secondary p-6 gap-8 items-center justify-center">
-                    <span className="bg-primary/50 backdrop-blur-md text-accent/90 text-3xl p-5">
+                <div className="flex bg-secondary/40 backdrop-blur-md rounded-3xl p-6 gap-8 items-center justify-center">
+                    <span className="bg-primary rounded-2xl text-accent/90 text-3xl p-5">
                     <BsArrowThroughHeartFill />
                     </span>
                     <div className="text-left">
@@ -80,8 +80,8 @@ const CategorySection = () => {
                     </div>
                 </div>
 
-                <div className="flex bg-secondary p-6 gap-8 items-center justify-center">
-                    <span className="bg-primary/50 backdrop-blur-md text-accent/90 text-3xl p-5">
+                <div className="flex bg-secondary/40 backdrop-blur-md rounded-3xl p-6 gap-8 items-center justify-center">
+                    <span className="bg-primary rounded-2xl text-accent/90 text-3xl p-5">
                     <RiGhost2Fill />
                     </span>
                     <div className="text-left">
@@ -91,8 +91,8 @@ const CategorySection = () => {
                     </div>
                 </div>
 
-                <div className="flex bg-secondary p-6 gap-8 items-center justify-center">
-                    <span className="bg-primary/50 backdrop-blur-md text-accent/90 text-3xl p-5">
+                <div className="flex bg-secondary/40 backdrop-blur-md rounded-3xl p-6 gap-8 items-center justify-center">
+                    <span className="bg-primary rounded-2xl text-accent/90 text-3xl p-5">
                     <GiCrossedSabres />
                     </span>
                     <div className="text-left">

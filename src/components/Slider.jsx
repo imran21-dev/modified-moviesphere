@@ -138,7 +138,7 @@ const Slider = () => {
                    
                   </div>
                   <p className="text-sm py-5 opacity-70">Two imprisoned men bond over decades, finding solace and eventual redemption through acts of common decency.</p>
-                  <button className="btn w-max bg-accent/90 text-white border-accent/90 hover:bg-transparent hover:border-accent/90 rounded-none px-7"> <IoMdPlay className="text-xl" />Watch</button>
+                  <button className="btn w-max bg-accent/90 text-white border-accent/90 hover:bg-transparent hover:border-accent/90 rounded-full px-7"> <IoMdPlay className="text-xl" />Watch</button>
               </div>
             </div>
           </SwiperSlide>)

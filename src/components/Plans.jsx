@@ -48,7 +48,7 @@ const Plans = () => {
             <p>Pick the perfect plan tailored to your entertainment needs and enjoy premium movie streaming your way!</p>
            <div className="grid grid-cols-3 gap-6 mx-auto py-8 w-9/12">
            {
-             premiumPlans.map(plan => <div className="border text-left flex flex-col justify-between border-secondary px-6 py-10" key={plan.name}>
+             premiumPlans.map(plan => <div className="border rounded-3xl text-left flex flex-col justify-between border-secondary px-6 py-10" key={plan.name}>
                <section>
                <h1 className="text-2xl font-semibold">{plan.name}</h1>
                 <p className="py-3">{plan.slogan}</p>
@@ -59,7 +59,7 @@ const Plans = () => {
                     }
                 </ul>
                </section>
-                <button className="btn mt-5 btn-outline border-accent/90 rounded-none">Choose Plan</button>
+                <button className="btn mt-5 btn-outline border-accent/90 hover:bg-accent/90 hover:border-accent/90 hover:text-white rounded-full">Choose Plan</button>
              </div>)
             }
            </div>

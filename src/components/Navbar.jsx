@@ -60,7 +60,7 @@ const Navbar = () => {
   return (
     <Headroom className="absolute top-0 left-0 z-50 w-full ">
 
-    <div className={scrollPosition === 0 ? 'bg-gradient-to-b from-primary to-transparent' :'bg-gradient-to-b from-primary to-transparent backdrop-blur-md '}>
+    <div className={scrollPosition === 0 ? 'bg-gradient-to-b from-primary to-transparent' :'bg-primary/20 backdrop-blur-md '}>
       <div className="navbar w-11/12 mx-auto">
         <div className="navbar-start w-max">
           <div className="dropdown">
@@ -220,7 +220,7 @@ const Navbar = () => {
             <div className="hidden absolute -bottom-[5.9rem] w-max -right-3  px-5 py-3 userName  bg-secondary">
               <div className="w-4 h-4 bg-secondary absolute -top-[6px] right-4 rotate-45"></div>
               <h1 className="text-sm font-semibold bg-gradient-to-r from-fuchsia-500 to-purple-600 bg-clip-text text-transparent">{user.displayName}</h1>
-              <button onClick={logOut} className="btn mt-4 btn-outline text-xs px-4  border-secondary rounded-none min-h-max h-max py-2 hover:bg-accent/90 hover:border-accent/90 hover:text-white"><TbLogout2 className="text-sm" />Log Out</button>
+              <button onClick={logOut} className="btn mt-4 btn-outline text-xs px-4  border-secondary rounded-full min-h-max h-max py-2 hover:bg-accent/90 hover:border-accent/90 hover:text-white"><TbLogout2 className="text-sm" />Log Out</button>
             </div>
             </div> :<CiUser className="text-3xl hover:bg-secondary rounded-full p-1 ml-2" /> :  <GridLoader 
            size={5}
