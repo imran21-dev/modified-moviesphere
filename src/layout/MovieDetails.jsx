@@ -3,11 +3,13 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import { MdDelete, MdFavorite } from "react-icons/md";
 import { RxStopwatch } from "react-icons/rx";
 import Rating from "react-rating";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const MovieDetails = () => {
     const movie = useLoaderData()
+    const navigate = useNavigate()
     const {  poster,
         title,
         duration,
@@ -15,14 +17,66 @@ const MovieDetails = () => {
         ratingStar,
         genreArray,
         _id,
-        summary} = movie
+        summary,
+    email} = movie
+
+    const favouriteMovie = {poster,title,duration,summary,releaseYear,ratingStar,genreArray,email}  
+
+    const addToFavourite = () => {
+        fetch('http://localhost:5000/add-favourite',{
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(favouriteMovie)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.insertedId) {
+                Swal.fire({
+                    icon: "success",
+                    title: "Added !",
+                    text: "This movie is added to your favourite list",
+                    
+                  });
+            }
+            else{
+                Swal.fire({
+                    title: 'Failed!',
+                    text: `Something went wrong`,
+                    icon: 'error',
+                    confirmButtonText: 'Retry'
+                  })
+            }
+        })
+    }    
 
     const deleteMovie = () => {
         fetch(`http://localhost:5000/delete-movie/${_id}`,{
             method: 'DELETE'
         })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => {
+            if (data.deletedCount) {
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Success!",
+                    text: 'Successfully delete',
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                  navigate('/all-movies')
+            }
+            else{
+                Swal.fire({
+                    title: 'Failed!',
+                    text: `Something went wrong`,
+                    icon: 'error',
+                    confirmButtonText: 'Retry'
+                  })
+            }
+        })
     }
 
     
@@ -61,7 +115,7 @@ const MovieDetails = () => {
                  <h2 className="flex truncate pt-1 items-center gap-2"><RxStopwatch className="text-xl"/> <span className="font-medium">Duration :</span>{duration} mins</h2>
                  <div className="pt-5 flex gap-6">
 
-                    <button className="btn min-h-max border border-transparent hover:border-neutral/10 hover:bg-neutral/20 h-max py-3 flex gap-1 items-center rounded-full bg-accent/90 text-white">Add to Favorite <MdFavorite className="text-lg"/></button>
+                    <button onClick={addToFavourite} className="btn min-h-max border border-transparent hover:border-neutral/10 hover:bg-neutral/20 h-max py-3 flex gap-1 items-center rounded-full bg-accent/90 text-white">Add to Favorite <MdFavorite className="text-lg"/></button>
 
                     <button onClick={deleteMovie} className="btn btn-outline min-h-max border-primary/40 hover:bg-neutral/20 h-max py-3 flex gap-1 items-center rounded-full bg-neutral/10 text-neutral hover:border-neutral/10 hover:text-white">Delete Movie <MdDelete className="text-lg"/> </button>
 

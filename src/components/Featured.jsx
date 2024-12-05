@@ -5,7 +5,7 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 
 const Featured = () => {
     const featuredMovies = useLoaderData()
-    console.log(featuredMovies)
+    
     return (
         <div className="w-11/12 mx-auto text-center">
             <h1 className="text-4xl font-semibold pt-20 pb-4">Featured Movie</h1>

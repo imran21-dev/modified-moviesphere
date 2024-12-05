@@ -3,10 +3,11 @@ import { CiPlay1 } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
 import { RxStopwatch } from "react-icons/rx";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const MovieCard = ({ movie }) => {
+  const navigate = useNavigate()
   const {
     poster,
     title,
@@ -17,9 +18,13 @@ const MovieCard = ({ movie }) => {
     genreArray,
    
   } = movie;
+
+  const showDetails = () => {
+    navigate(`/movie-details/${_id}`)
+  }
   return (
         <div className="w-full">
-           <div className="w-full relative movie-card rounded-3xl overflow-hidden">
+           <div onClick={showDetails} className="w-full relative movie-card rounded-3xl overflow-hidden">
             <div className="absolute movie-play flex duration-300 w-full h-full  items-center justify-center text-7xl text-transparent z-50"><CiPlay1 /></div>
            <h2 className="flex top-4 z-50 left-4 px-3 rounded-full gap-1 absolute items-center bg-primary/30 backdrop-blur-md"><FaStar className="text-[#FFAA00] text-sm"/> {ratingStar}</h2>
 
