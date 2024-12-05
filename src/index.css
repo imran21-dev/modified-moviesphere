@@ -37,3 +37,15 @@ body{
 
 
 
+.movie-card:hover .movie-bg {
+ backdrop-filter: blur(10px);
+ 
+}
+.movie-card:hover .movie-poster {
+ transform: scale(1.1);
+ 
+}
+.movie-card:hover .movie-play {
+ color: white;
+ 
+}

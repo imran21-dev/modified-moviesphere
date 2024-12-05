@@ -22,17 +22,17 @@ const Register = () => {
         const target = e.target.parentNode;
       
         target.className =
-          "flex items-center w-full  border   border-secondary";
+          "flex items-center w-full  border rounded-full border-secondary";
         setPassValid(true);
     
         if (value.length > 0) {
           if (!validatePassword(value)) {
             target.className =
-              "flex items-center w-full  border   border-accent/90";
+              "flex items-center w-full  border rounded-full  border-accent/90";
             setPassValid(false);
           } else {
             target.className =
-              "flex items-center w-full  border   border-secondary";
+              "flex items-center w-full  border rounded-full  border-secondary";
             setPassValid(true);
           }
         }
@@ -132,16 +132,16 @@ const Register = () => {
 
         <div className="form-control pb-1">
           <label className="label">
-            <span className="label-text">Name</span>
+            <span className="label-text ">Name</span>
           </label>
-         <div className="flex items-center w-full  border   border-secondary">
-         <CiUser className="text-lg mx-2" />
+         <div className="flex items-center w-full border rounded-full -ml-1 border-secondary">
+         <CiUser className="text-lg mx-3" />
          <input
             type="text"
             name="name"
 
             placeholder="Enter your name"
-            className='bg-transparent w-full pr-5 py-2 focus:outline-none placeholder:text-neutral/30  placeholder:font-thin'
+            className='bg-transparent  w-full pr-5 py-2 focus:outline-none placeholder:text-neutral/30  placeholder:font-thin'
             required
           />
          </div>
@@ -149,10 +149,10 @@ const Register = () => {
 
         <div className="form-control pb-1">
           <label className="label">
-            <span className="label-text">Email</span>
+            <span className="label-text ">Email</span>
           </label>
-         <div className="flex items-center w-full  border   border-secondary">
-         <CiMail className="text-lg mx-2" />
+         <div className="flex items-center w-full  border rounded-full -ml-1 border-secondary">
+         <CiMail className="text-lg mx-3" />
          <input
             type="email"
             name="email"
@@ -166,10 +166,10 @@ const Register = () => {
 
         <div className="form-control pb-1">
           <label className="label">
-            <span className="label-text">Photo URL</span>
+            <span className="label-text ">Photo URL</span>
           </label>
-         <div className="flex items-center w-full  border   border-secondary">
-         <CiLink className="text-lg mx-2" />
+         <div className="flex items-center w-full  border rounded-full -ml-1 border-secondary">
+         <CiLink className="text-lg mx-3" />
          <input
             type="text"
             name="photo"
@@ -183,10 +183,10 @@ const Register = () => {
 
         <div className="form-control pb-1">
           <label className="label">
-            <span className="label-text">Password</span>
+            <span className="label-text ">Password</span>
           </label>
-         <div className="flex items-center w-full  border   border-secondary">
-         <CiLock className="text-lg mx-2" />
+         <div className="flex items-center w-full  border rounded-full -ml-1 border-secondary">
+         <CiLock className="text-lg mx-3" />
          <input
             type={showHide ? 'text' : 'password'}
             name="password"
@@ -206,7 +206,7 @@ const Register = () => {
 
         <div className="form-control pt-8">
           
-         <button disabled={passValid ? false : true} className="btn bg-accent/90 rounded-none min-h-max h-max py-3 text-white border-none hover:bg-[#BEBEBE]">Create</button>
+         <button disabled={passValid ? false : true} className="btn -ml-1 bg-accent/90 rounded-full min-h-max h-max py-3 text-white border-none hover:bg-[#BEBEBE]">Create</button>
         </div>
         <p className="text-xs py-2 text-center">Already have an account? <Link className="font-semibold hover:text-accent/90" state={state ? state : null} to='/login'>Login</Link></p>
 
@@ -214,7 +214,7 @@ const Register = () => {
              </form>
              <div className="divider">or</div>
              <div className="mx-auto w-max pt-4">
-             <button onClick={openPopup} className="btn  px-10 btn-outline border-secondary rounded-none"><img className="w-5" src={google} alt="" /> Sign in with Google</button>
+             <button onClick={openPopup} className="btn  px-10 btn-outline border-secondary rounded-full"><img className="w-5" src={google} alt="" /> Sign in with Google</button>
              </div>
             </section>
         </div>

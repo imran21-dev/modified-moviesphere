@@ -60,7 +60,7 @@ const Navbar = () => {
   return (
     <Headroom className="absolute top-0 left-0 z-50 w-full ">
 
-    <div className={scrollPosition === 0 ? 'bg-gradient-to-b from-primary to-transparent' :'bg-primary/20 backdrop-blur-md '}>
+    <div className={scrollPosition === 0 ? 'bg-gradient-to-b from-primary/10 to-transparent' :'bg-primary/20 backdrop-blur-md '}>
       <div className="navbar w-11/12 mx-auto">
         <div className="navbar-start w-max">
           <div className="dropdown">
@@ -174,14 +174,14 @@ const Navbar = () => {
          </> : <>
          <Link
          to="/login"
-         className="font-medium btn border border-accent hover:border-[#BEBEBE] hover:bg-[#BEBEBE] mx-2 min-h-max h-max duration-300 bg-accent/90 text-white hover:text-primary py-[6px] rounded-none px-5 text-sm"
+         className="font-medium btn border border-accent hover:border-[#BEBEBE] hover:bg-[#BEBEBE] mx-2 min-h-max h-max duration-300 bg-accent/90 text-white hover:text-primary py-[6px] rounded-full px-5 text-sm"
        >
          Login
        </Link>
 
        <Link
          to="/register"
-         className="font-medium btn border-secondary btn-outline hover:bg-[#BEBEBE] hover:border-[#BEBEBE] min-h-max h-max duration-300   py-[6px] rounded-none px-5 text-sm mr-5"
+         className="font-medium btn border-secondary btn-outline hover:bg-[#BEBEBE] hover:border-[#BEBEBE] min-h-max h-max duration-300   py-[6px] rounded-full px-5 text-sm mr-5"
        >
          Register
        </Link>
@@ -195,7 +195,7 @@ const Navbar = () => {
             disabled={hide ? false : true}
             className={
               hide
-                ? "bg-transparent w-52 duration-300 border border-secondary py-1 focus:outline-none px-2 mr-2"
+                ? "bg-transparent w-52 duration-300 border rounded-full border-secondary py-1 focus:outline-none px-2 mr-2"
                 : "bg-transparent -ml-5 w-0 duration-300 border-none border-secondary py-1 focus:outline-none px-2 mr-2"
             }
             type="text"
@@ -217,7 +217,7 @@ const Navbar = () => {
           {
            loadPrivate ? user ? <div className="userImg relative">
             <img className="w-8 h-8 object-cover rounded-full ml-2" src={user.photoURL} alt="" />
-            <div className="hidden absolute -bottom-[5.9rem] w-max -right-3  px-5 py-3 userName  bg-secondary">
+            <div className="hidden absolute -bottom-[5.9rem] w-max -right-3  px-5 py-3 userName rounded-2xl bg-secondary">
               <div className="w-4 h-4 bg-secondary absolute -top-[6px] right-4 rotate-45"></div>
               <h1 className="text-sm font-semibold bg-gradient-to-r from-fuchsia-500 to-purple-600 bg-clip-text text-transparent">{user.displayName}</h1>
               <button onClick={logOut} className="btn mt-4 btn-outline text-xs px-4  border-secondary rounded-full min-h-max h-max py-2 hover:bg-accent/90 hover:border-accent/90 hover:text-white"><TbLogout2 className="text-sm" />Log Out</button>

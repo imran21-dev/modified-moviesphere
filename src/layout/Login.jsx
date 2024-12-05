@@ -91,8 +91,8 @@ const Login = () => {
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-         <div className="flex items-center w-full  border   border-secondary">
-         <CiMail className="text-lg mx-2" />
+         <div className="flex items-center w-full  border rounded-full -ml-1 border-secondary">
+         <CiMail className="text-lg mx-3" />
          <input
             type="email"
             name="email"
@@ -110,8 +110,8 @@ const Login = () => {
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-         <div className="flex items-center w-full  border   border-secondary">
-         <CiLock className="text-lg mx-2" />
+         <div className="flex items-center w-full  border rounded-full -ml-1 border-secondary">
+         <CiLock className="text-lg mx-3" />
          <input
             type={showHide ? 'text' : 'password'}
             name="password"
@@ -131,7 +131,7 @@ const Login = () => {
 
         <div className="form-control pt-8">
           
-         <button  className="btn bg-accent/90 rounded-none min-h-max h-max py-3 text-white border-none hover:bg-[#BEBEBE]">Login</button>
+         <button  className="btn -ml-1 bg-accent/90 rounded-full min-h-max h-max py-3 text-white border-none hover:bg-[#BEBEBE]">Login</button>
         </div>
         <p className="text-xs py-2 text-center">Do not have an account? <Link className="font-semibold hover:text-accent/90" state={state ? state : null} to='/register'>Register</Link></p>
 
@@ -139,7 +139,7 @@ const Login = () => {
              </form>
              <div className="divider">or</div>
              <div className="mx-auto w-max pt-4">
-             <button onClick={openPopup} className="btn  px-10 btn-outline border-secondary rounded-none"><img className="w-5" src={google} alt="" /> Sign in with Google</button>
+             <button onClick={openPopup} className="btn  px-10 btn-outline border-secondary rounded-full"><img className="w-5" src={google} alt="" /> Sign in with Google</button>
              </div>
             </section>
         </div>

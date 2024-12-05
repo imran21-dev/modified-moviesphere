@@ -1,16 +1,17 @@
 import PropTypes from "prop-types";
+import { CiPlay1 } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
 import { RxStopwatch } from "react-icons/rx";
 
 import { Link } from "react-router-dom";
-import { Tooltip } from "react-tooltip";
+
 
 const MovieCard = ({ movie }) => {
   const {
     poster,
     title,
     duration,
-
+    _id,
     releaseYear,
     ratingStar,
     genreArray,
@@ -18,16 +19,17 @@ const MovieCard = ({ movie }) => {
   } = movie;
   return (
         <div className="w-full">
-           <div className="w-full relative">
-           <h2 className="flex top-4  left-4 px-3 rounded-full gap-1 absolute items-center bg-primary/30 backdrop-blur-md"><FaStar className="text-[#FFAA00] text-sm"/> {ratingStar}</h2>
+           <div className="w-full relative movie-card rounded-3xl overflow-hidden">
+            <div className="absolute movie-play flex duration-300 w-full h-full  items-center justify-center text-7xl text-transparent z-50"><CiPlay1 /></div>
+           <h2 className="flex top-4 z-50 left-4 px-3 rounded-full gap-1 absolute items-center bg-primary/30 backdrop-blur-md"><FaStar className="text-[#FFAA00] text-sm"/> {ratingStar}</h2>
 
-            <div className="w-full">
-                <img className="w-full rounded-3xl h-[420px] object-cover" src={poster} alt="movie poster" />
+            <div className="w-full h-[520px]  ">
+                <img className="w-full rounded-3xl h-full object-cover duration-300 movie-poster" src={poster} alt="movie poster" />
             </div>
 
-          <div className="text-left absolute bottom-0 pb-4 h-full flex flex-col justify-end w-full px-4  bg-gradient-to-t from-primary/70  to-transparent">
+          <div className="text-left movie-bg duration-300 absolute bottom-0 pb-4 h-full flex flex-col justify-end w-full px-4  bg-gradient-to-t from-primary/70  to-transparent">
             
-            <h1 data-tooltip-id="my-tooltip" data-tooltip-content={title} className="text-lg font-semibold truncate">{title}</h1>
+            <h1 className="text-lg font-semibold truncate">{title}</h1>
             <div className="flex text-sm items-center gap-2 py-">
 
            
@@ -40,10 +42,10 @@ const MovieCard = ({ movie }) => {
             
           </div>
          </div>
-         <div className="pt-3 pb-4 px-3 w-2/5 hover:w-full duration-300">
-         <Link className="btn rounded-full w-full bg-accent/90 text-white hover:bg-accent/90 border-accent/90 hover:border-accent/90">Show Details</Link>
+         <div className="pt-3 pb-4 px-3 w-2/5 hover:w-3/5 duration-300">
+         <Link to={`/movie-details/${_id}`} className="btn rounded-full w-full bg-accent/90 text-white hover:bg-accent/90 border-accent/90 hover:border-accent/90">Show Details</Link>
          </div>
-        <Tooltip style={{backgroundColor: 'red', backdropFilter: 'blur(10px)'}} id='my-tooltip'/>
+        
         </div>
 );
 };

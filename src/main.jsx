@@ -15,6 +15,9 @@ import AssetsContext from './context/AssetsContext';
 import Register from './layout/Register';
 import AddMoviePrivate from './private/AddMoviePrivate';
 import Login from './layout/Login';
+import AllMovies from './layout/AllMovies';
+import MovieDetailsPrivate from './private/MovieDetailsPrivate';
+import MovieDetails from './layout/MovieDetails';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +40,16 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login></Login>
+      },
+      {
+        path:'/all-movies',
+        element: <AllMovies></AllMovies>,
+        loader: () => fetch('http://localhost:5000/')
+      },
+      {
+        path: '/movie-details/:id',
+        loader: ({params}) => fetch(`http://localhost:5000/movieDetails/${params.id}`),
+        element: <MovieDetailsPrivate><MovieDetails></MovieDetails></MovieDetailsPrivate>,
       }
     ]
   },
