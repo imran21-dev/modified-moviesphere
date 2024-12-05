@@ -18,6 +18,8 @@ import Login from './layout/Login';
 import AllMovies from './layout/AllMovies';
 import MovieDetailsPrivate from './private/MovieDetailsPrivate';
 import MovieDetails from './layout/MovieDetails';
+import FavouriteMoviesPrivate from './private/FavouriteMoviesPrivate';
+import FavouriteMovies from './layout/FavouriteMovies';
 
 const router = createBrowserRouter([
   {
@@ -50,6 +52,11 @@ const router = createBrowserRouter([
         path: '/movie-details/:id',
         loader: ({params}) => fetch(`http://localhost:5000/movieDetails/${params.id}`),
         element: <MovieDetailsPrivate><MovieDetails></MovieDetails></MovieDetailsPrivate>,
+      },
+      {
+        path: '/my-favourites',
+        element: <FavouriteMoviesPrivate><FavouriteMovies></FavouriteMovies></FavouriteMoviesPrivate>,
+        loader: () => fetch('http://localhost:5000/get-favourites')
       }
     ]
   },

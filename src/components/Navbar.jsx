@@ -101,7 +101,7 @@ const Navbar = () => {
               </li>
               <li className="">
                 <NavLink
-                  to="/my-favourites"
+                  to='/my-favourites'
                   className="py-0 duration-300 rounded-none hover:text-accent px-3"
                 >
                   My Favourites
@@ -153,7 +153,7 @@ const Navbar = () => {
             </li>
             <li className="">
               <NavLink
-                to="/my-favourites"
+                to='/my-favourites'
                 className="py-0 duration-300 rounded-none hover:text-accent px-3"
               >
                 My Favourites

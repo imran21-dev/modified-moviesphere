@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { FaStar } from "react-icons/fa";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { MdDelete, MdFavorite } from "react-icons/md";
@@ -5,9 +6,12 @@ import { RxStopwatch } from "react-icons/rx";
 import Rating from "react-rating";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { ThemeContext } from "../context/AssetsContext";
 
 
 const MovieDetails = () => {
+    const {user} = useContext(ThemeContext)
+    const email = user.email
     const movie = useLoaderData()
     const navigate = useNavigate()
     const {  poster,
@@ -17,11 +21,12 @@ const MovieDetails = () => {
         ratingStar,
         genreArray,
         _id,
-        summary,
-    email} = movie
+        summary,} = movie
+    
+    const defaultId = _id
 
-    const favouriteMovie = {poster,title,duration,summary,releaseYear,ratingStar,genreArray,email}  
-
+    const favouriteMovie = {defaultId,poster,title,duration,summary,releaseYear,ratingStar,genreArray,email}  
+        
     const addToFavourite = () => {
         fetch('http://localhost:5000/add-favourite',{
             method: 'POST',
