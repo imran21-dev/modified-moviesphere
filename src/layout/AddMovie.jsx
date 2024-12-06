@@ -159,15 +159,30 @@ const AddMovie = () => {
         Swal.fire({
           icon: "success",
           title: "Uploaded !",
-          text: "Your movie is uploaded in MovieSharp",
-          
+          text: "Successfully Uploaded this movie !",
+          confirmButtonText: "Okay",
+          scrollbarPadding: false,
+        customClass: {
+          title: 'text-xl md:text-3xl font-bold ',
+          text: 'text-3xl',
+          popup: "bg-[#021308] text-white rounded-3xl outline outline-[#16A34A]",
+          confirmButton: "bg-[#16A34A] rounded-full py-[10px] px-[30px]",
+        },
         });
       }else{
         Swal.fire({
           icon: "error",
-          title: "Upload failed!",
-          text: "Something went wrong",
-          
+          title: 'Failed !',
+          text: `Something went wrong`,
+          confirmButtonText: "Retry",
+          scrollbarPadding: false,
+          customClass: {
+            title: 'text-xl md:text-3xl font-bold ',
+            text: 'text-3xl',
+            popup: "bg-[#1d0602] text-white rounded-3xl outline outline-[#f12804]",
+            confirmButton: "bg-[#f12804] rounded-full py-[10px] px-[30px]",
+          },
+       
         });
       }
     })

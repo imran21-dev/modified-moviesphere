@@ -29,7 +29,7 @@ export default {
           secondary: '#333333',
           accent: '#ff0000e8',
           neutral: '#ffffff',
-          'base-100': '#000000',
+          'base-100': '#090314',
           'placeholder': '#494949'
 
        

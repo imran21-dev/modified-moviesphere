@@ -25,9 +25,17 @@ const Fmoviecard = ({ movie, fMovies, setFmovies }) => {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
+      confirmButtonColor: "#f12804",
+      cancelButtonColor: "#16A34A",
       confirmButtonText: "Yes, delete it!",
+      scrollbarPadding: false,
+      customClass: {
+        title: 'text-xl md:text-3xl font-bold ',
+        text: 'text-3xl',
+        popup: "bg-[#211600] text-white rounded-3xl outline outline-[#b87e00]",
+        confirmButton: "bg-[#16A34A] rounded-full py-[10px] px-[30px]",
+        cancelButton: "bg-[#16A34A] rounded-full py-[10px] px-[30px]",
+      },
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(`http://localhost:5000/delete-favourite/${_id}`, {
@@ -37,9 +45,17 @@ const Fmoviecard = ({ movie, fMovies, setFmovies }) => {
           .then((data) => {
             if (data.deletedCount) {
               Swal.fire({
-                title: "Deleted!",
-                text: "Your file has been deleted.",
                 icon: "success",
+                title: "Deleted !",
+                text: "Successfully deleted from your favourite list !",
+                confirmButtonText: "Okay",
+                scrollbarPadding: false,
+              customClass: {
+                title: 'text-xl md:text-3xl font-bold ',
+                text: 'text-3xl',
+                popup: "bg-[#021308] text-white rounded-3xl outline outline-[#16A34A]",
+                confirmButton: "bg-[#16A34A] rounded-full py-[10px] px-[30px]",
+              },
               });
               const remainingMovies = fMovies.filter(
                 (movie) => movie._id !== _id
@@ -47,10 +63,18 @@ const Fmoviecard = ({ movie, fMovies, setFmovies }) => {
               setFmovies(remainingMovies);
             } else {
               Swal.fire({
-                title: "Failed!",
-                text: `Something went wrong`,
                 icon: "error",
+                title: 'Failed !',
+                text: `Something went wrong`,
                 confirmButtonText: "Retry",
+                scrollbarPadding: false,
+                customClass: {
+                  title: 'text-xl md:text-3xl font-bold ',
+                  text: 'text-3xl',
+                  popup: "bg-[#1d0602] text-white rounded-3xl outline outline-[#f12804]",
+                  confirmButton: "bg-[#f12804] rounded-full py-[10px] px-[30px]",
+                },
+             
               });
             }
           });

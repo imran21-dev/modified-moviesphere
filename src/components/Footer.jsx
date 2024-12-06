@@ -38,7 +38,7 @@ const Footer = () => {
           </ul>
        </div>
       </div>
-      <h2 className="text-sm w-full border-t border-secondary py-5 text-center mt-8">&copy; Copyright . All Right Reserved</h2>
+      <h2 className="text-sm w-full border-t border-secondary py-5 text-center mt-8">&copy; MovieSharp 2024</h2>
     </div>
    </div>
   );

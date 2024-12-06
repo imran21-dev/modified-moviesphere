@@ -42,17 +42,32 @@ const MovieDetails = () => {
                 Swal.fire({
                     icon: "success",
                     title: "Added !",
-                    text: "This movie is added to your favourite list",
-                    
+                    text: "This Movie is added to your Favourite list",
+                    confirmButtonText: "Got it",
+                    scrollbarPadding: false,
+                  customClass: {
+                    title: 'text-xl md:text-3xl font-bold ',
+                    text: 'text-3xl',
+                    popup: "bg-[#021308] text-white rounded-3xl outline outline-[#16A34A]",
+                    confirmButton: "bg-[#16A34A] rounded-full py-[10px] px-[30px]",
+                  },
                   });
             }
             else{
                 Swal.fire({
-                    title: 'Failed!',
+                    icon: "error",
+                    title: 'Failed !',
                     text: `Something went wrong`,
-                    icon: 'error',
-                    confirmButtonText: 'Retry'
-                  })
+                    confirmButtonText: "Retry",
+                    scrollbarPadding: false,
+                    customClass: {
+                      title: 'text-xl md:text-3xl font-bold ',
+                      text: 'text-3xl',
+                      popup: "bg-[#1d0602] text-white rounded-3xl outline outline-[#f12804]",
+                      confirmButton: "bg-[#f12804] rounded-full py-[10px] px-[30px]",
+                    },
+                 
+                  });
             }
         })
     }    
@@ -63,9 +78,17 @@ const MovieDetails = () => {
             text: "You won't be able to revert this!",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
+            confirmButtonColor: "#f12804",
+            cancelButtonColor: "#16A34A",
+            confirmButtonText: "Yes, delete it!",
+            scrollbarPadding: false,
+            customClass: {
+              title: 'text-xl md:text-3xl font-bold ',
+              text: 'text-3xl',
+              popup: "bg-[#211600] text-white rounded-3xl outline outline-[#b87e00]",
+              confirmButton: "bg-[#16A34A] rounded-full py-[10px] px-[30px]",
+              cancelButton: "bg-[#16A34A] rounded-full py-[10px] px-[30px]",
+            },
           }).then((result) => {
             if (result.isConfirmed) {
                 fetch(`http://localhost:5000/delete-movie/${_id}`,{
@@ -75,19 +98,35 @@ const MovieDetails = () => {
                 .then(data => {
                     if (data.deletedCount) {
                         Swal.fire({
-                            title: "Deleted!",
-                            text: "Your file has been deleted.",
-                            icon: "success"
+                            icon: "success",
+                            title: "Deleted !",
+                            text: "Successfully deleted this movie !",
+                            confirmButtonText: "Close",
+                            scrollbarPadding: false,
+                          customClass: {
+                            title: 'text-xl md:text-3xl font-bold ',
+                            text: 'text-3xl',
+                            popup: "bg-[#021308] text-white rounded-3xl outline outline-[#16A34A]",
+                            confirmButton: "bg-[#16A34A] rounded-full py-[10px] px-[30px]",
+                          },
                           });
                           navigate('/all-movies')
                     }
                     else{
                         Swal.fire({
-                            title: 'Failed!',
+                            icon: "error",
+                            title: 'Failed !',
                             text: `Something went wrong`,
-                            icon: 'error',
-                            confirmButtonText: 'Retry'
-                          })
+                            confirmButtonText: "Retry",
+                            scrollbarPadding: false,
+                            customClass: {
+                              title: 'text-xl md:text-3xl font-bold ',
+                              text: 'text-3xl',
+                              popup: "bg-[#1d0602] text-white rounded-3xl outline outline-[#f12804]",
+                              confirmButton: "bg-[#f12804] rounded-full py-[10px] px-[30px]",
+                            },
+                         
+                          });
                     }
                 })
              

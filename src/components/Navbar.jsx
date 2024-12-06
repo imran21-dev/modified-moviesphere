@@ -37,21 +37,36 @@ const Navbar = () => {
     signOut(auth)
     .then(() => {
       Swal.fire({
-        position: "center",
         icon: "success",
-        title: "Success!",
-        text: 'Successfully loged out',
+        title: "Logged Out !",
+        text: "Successfully logged out!",
+        confirmButtonText: "Okay",
+        scrollbarPadding: false,
         showConfirmButton: false,
-        timer: 1500
+        timer: 1500,
+      customClass: {
+        title: 'text-xl md:text-3xl font-bold ',
+        text: 'text-3xl',
+        popup: "bg-[#021308] text-white rounded-3xl outline outline-[#16A34A]",
+        confirmButton: "bg-[#16A34A] rounded-full py-[10px] px-[30px]",
+      },
       });
     })
     .catch(error => {
       Swal.fire({
-        title: 'Failed!',
+        icon: "error",
+        title: 'Failed !',
         text: `${error.message}`,
-        icon: 'error',
-        confirmButtonText: 'Retry'
-      })
+        confirmButtonText: "Retry",
+        scrollbarPadding: false,
+        customClass: {
+          title: 'text-xl md:text-3xl font-bold ',
+          text: 'text-3xl',
+          popup: "bg-[#1d0602] text-white rounded-3xl outline outline-[#f12804]",
+          confirmButton: "bg-[#f12804] rounded-full py-[10px] px-[30px]",
+        },
+     
+      });
     })
   }
 
