@@ -28,7 +28,7 @@ const MovieCard = ({ movie }) => {
             <div className="absolute movie-play flex duration-300 w-full h-full  items-center justify-center text-7xl text-transparent z-50"><CiPlay1 /></div>
            <h2 className="flex top-4 z-50 left-4 px-3 rounded-full gap-1 absolute items-center bg-primary backdrop-blur-md"><FaStar className="text-[#FFAA00] text-sm"/> {ratingStar}</h2>
 
-            <div className="w-full h-[520px]  ">
+            <div className="w-full h-[600px]  ">
                 <img className="w-full rounded-3xl h-full object-cover duration-300 movie-poster" src={poster} alt="movie poster" />
             </div>
 

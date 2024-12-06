@@ -10,7 +10,7 @@ import fr from '../assets/fr.png'
 
 const TvShow = () => {
 
-    const [liveTV, setLiveTV] = useState("https://www.youtube.com/embed/UGZPjMdxU2A?si=EqIBVUD3l7k3E61p");
+    const [liveTV, setLiveTV] = useState("https://www.youtube.com/embed/bNyUyrR0PHo?si=0BKpT5h_swDM_GEI");
 
     const handleChannel = (channelLink) => {
         setLiveTV(channelLink)

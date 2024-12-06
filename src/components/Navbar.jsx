@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { RiMenu4Fill,  } from "react-icons/ri";
-import {  CiSearch, CiUser } from "react-icons/ci";
+import {  CiUser } from "react-icons/ci";
 import { useContext, useEffect, useState } from "react";
 
 import { FaCloudMoon } from "react-icons/fa";
@@ -15,10 +15,8 @@ import Swal from "sweetalert2";
 
 const Navbar = () => {
   const {user,loadPrivate} = useContext(ThemeContext)
-  const [hide, setHide] = useState(false);
-  const visibleSearch = () => {
-    setHide(!hide);
-  };
+ 
+
 
 
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -190,20 +188,7 @@ const Navbar = () => {
         
         }
 
-          <input
-            id="searchBar"
-            disabled={hide ? false : true}
-            className={
-              hide
-                ? "bg-transparent w-52 duration-300 border rounded-full border-secondary py-1 focus:outline-none px-2 mr-2"
-                : "bg-transparent -ml-5 w-0 duration-300 border-none border-secondary py-1 focus:outline-none px-2 mr-2"
-            }
-            type="text"
-          />
-          <CiSearch
-            onClick={visibleSearch}
-            className="text-3xl hover:bg-secondary rounded-full p-1"
-          />
+         
           <label className="swap swap-rotate ml-1">
             {/* this hidden checkbox controls the state */}
             <input type="checkbox" className="theme-controller" value="light" />

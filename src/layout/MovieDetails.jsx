@@ -58,31 +58,41 @@ const MovieDetails = () => {
     }    
 
     const deleteMovie = () => {
-        fetch(`http://localhost:5000/delete-movie/${_id}`,{
-            method: 'DELETE'
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.deletedCount) {
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: "Success!",
-                    text: 'Successfully delete',
-                    showConfirmButton: false,
-                    timer: 1500
-                  });
-                  navigate('/all-movies')
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/delete-movie/${_id}`,{
+                    method: 'DELETE'
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount) {
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                          });
+                          navigate('/all-movies')
+                    }
+                    else{
+                        Swal.fire({
+                            title: 'Failed!',
+                            text: `Something went wrong`,
+                            icon: 'error',
+                            confirmButtonText: 'Retry'
+                          })
+                    }
+                })
+             
             }
-            else{
-                Swal.fire({
-                    title: 'Failed!',
-                    text: `Something went wrong`,
-                    icon: 'error',
-                    confirmButtonText: 'Retry'
-                  })
-            }
-        })
+          });
     }
 
     

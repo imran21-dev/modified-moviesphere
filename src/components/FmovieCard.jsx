@@ -74,7 +74,7 @@ const Fmoviecard = ({ movie, fMovies, setFmovies }) => {
           <FaStar className="text-[#FFAA00] text-sm" /> {ratingStar}
         </h2>
 
-        <div className="w-full h-[520px]  ">
+        <div className="w-full h-[600px]  ">
           <img
             className="w-full rounded-3xl h-full object-cover duration-300 movie-poster"
             src={poster}
