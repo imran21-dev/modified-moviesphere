@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 
 
 const AddMovie = () => {
-  const { releaseYear, ratingStar, genreArray,setReleaseTool, setRatingTool, setGenreTooltip,user,setRelease,setRating,setSelectedGenre } = useContext(ThemeContext);
+  const { releaseYear, ratingStar, genreArray,setReleaseTool, setRatingTool, setGenreTooltip,user,setRelease,setRating,setSelectedGenre,setReleaseYear,setRatingStar,setGenreArray } = useContext(ThemeContext);
 
   const [posterValid, setPosterValid] = useState(true);
   const [titleValid, setTitleValid] = useState(true);
@@ -45,7 +45,9 @@ const AddMovie = () => {
     }
   };
   const handleTitle = (e) => {
-    const titleRegX = /^(?!\s*$).*(\S.*\S)$/;
+    const titleRegX = /^(?!\s)(?=.{2,}).*$/
+
+
 
     const value = e.target.value;
     const target = e.target;
@@ -156,6 +158,7 @@ const AddMovie = () => {
     .then(res => res.json())
     .then(data => {
       if (data.insertedId) {
+      
         Swal.fire({
           icon: "success",
           title: "Uploaded !",
@@ -170,6 +173,7 @@ const AddMovie = () => {
         },
         });
       }else{
+     
         Swal.fire({
           icon: "error",
           title: 'Failed !',
@@ -190,6 +194,9 @@ const AddMovie = () => {
     setRelease(false)
     setRating(0)
     setSelectedGenre([])
+    setReleaseYear(null)
+    setRatingStar(null)
+    setGenreArray([])
    
 
 
@@ -237,7 +244,7 @@ const AddMovie = () => {
             className={`px-5 py-2 placeholder:text-neutral/30 placeholder:font-thin bg-transparent border border-secondary focus:outline-none rounded-full `}
             required
           />
-          {titleValid ? '': <span className="text-accent/90 text-left text-xs pt-1">Title must be at least 2 characters and no space on the right</span>}
+          {titleValid ? '': <span className="text-accent/90 text-left text-xs pt-1">Title must be at least 2 characters</span>}
         </div>
 
         <section className="grid grid-cols-2 relative  gap-6">

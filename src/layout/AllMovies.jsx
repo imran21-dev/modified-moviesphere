@@ -16,11 +16,13 @@ const AllMovies = () => {
         
       }
       else{
-        const filter = loadedMovies.filter(movie => movie.title.includes(search))
+        const filter = loadedMovies.filter(movie => movie.title.toLowerCase().includes(search.toLowerCase()))
         
         setAllMovies(filter)
 
       }
+
+      
 
     
   }

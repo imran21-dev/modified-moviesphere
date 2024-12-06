@@ -32,7 +32,7 @@ const Fmoviecard = ({ movie, fMovies, setFmovies }) => {
       customClass: {
         title: 'text-xl md:text-3xl font-bold ',
         text: 'text-3xl',
-        popup: "bg-[#211600] text-white rounded-3xl outline outline-[#b87e00]",
+        popup: "bg-[#1d0602] text-white rounded-3xl outline outline-[#f12804]",
         confirmButton: "bg-[#16A34A] rounded-full py-[10px] px-[30px]",
         cancelButton: "bg-[#16A34A] rounded-full py-[10px] px-[30px]",
       },
@@ -91,10 +91,10 @@ const Fmoviecard = ({ movie, fMovies, setFmovies }) => {
         onClick={showDetails}
         className="w-full relative movie-card rounded-3xl overflow-hidden"
       >
-        <div className="absolute movie-play flex duration-300 w-full h-full  items-center justify-center text-7xl text-transparent z-50">
+        <div className="absolute movie-play flex duration-300 w-full h-full  items-center justify-center text-7xl text-transparent z-40">
           <CiPlay1 />
         </div>
-        <h2 className="flex top-4 z-50 left-4 px-3 rounded-full gap-1 absolute items-center bg-primary backdrop-blur-md">
+        <h2 className="flex top-4 z-40 left-4 px-3 rounded-full gap-1 absolute items-center bg-primary backdrop-blur-md">
           <FaStar className="text-[#FFAA00] text-sm" /> {ratingStar}
         </h2>
 

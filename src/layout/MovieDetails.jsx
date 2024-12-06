@@ -85,7 +85,7 @@ const MovieDetails = () => {
             customClass: {
               title: 'text-xl md:text-3xl font-bold ',
               text: 'text-3xl',
-              popup: "bg-[#211600] text-white rounded-3xl outline outline-[#b87e00]",
+              popup: "bg-[#1d0602] text-white rounded-3xl outline outline-[#f12804]",
               confirmButton: "bg-[#16A34A] rounded-full py-[10px] px-[30px]",
               cancelButton: "bg-[#16A34A] rounded-full py-[10px] px-[30px]",
             },
