@@ -15,9 +15,17 @@ const AssetsContext = ({children}) => {
     const [selectedGenre, setSelectedGenre] = useState([]);
 
 
+
+
     const [releaseYear, setReleaseYear] = useState(null)
     const [ratingStar, setRatingStar] = useState(null)
     const [genreArray, setGenreArray] = useState([])
+
+    
+
+
+
+
 
     const [releaseTool, setReleaseTool] = useState(false)
     const [ratingTool, setRatingTool] = useState(false)
@@ -71,7 +79,8 @@ const AssetsContext = ({children}) => {
         rating,
         setRating,
         selectedGenre,
-        setSelectedGenre
+        setSelectedGenre,
+       
 
     }
 

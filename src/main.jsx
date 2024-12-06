@@ -20,11 +20,16 @@ import MovieDetailsPrivate from './private/MovieDetailsPrivate';
 import MovieDetails from './layout/MovieDetails';
 import FavouriteMoviesPrivate from './private/FavouriteMoviesPrivate';
 import FavouriteMovies from './layout/FavouriteMovies';
+import UpdateMoviePrivate from './private/UpdateMoviePrivate';
+import UpdateMovie from './layout/UpdateMovie';
+import ErrorPage from './layout/ErrorPage';
+import TvShow from './layout/TvShow';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    errorElement: <ErrorPage></ErrorPage>,
     children:[
       {
         path: '/',
@@ -57,6 +62,15 @@ const router = createBrowserRouter([
         path: '/my-favourites',
         element: <FavouriteMoviesPrivate><FavouriteMovies></FavouriteMovies></FavouriteMoviesPrivate>,
         loader: () => fetch('http://localhost:5000/get-favourites')
+      },
+      {
+        path: '/update-movie/:id',
+        element: <UpdateMoviePrivate><UpdateMovie></UpdateMovie></UpdateMoviePrivate>,
+        loader: ({params}) => fetch(`http://localhost:5000/updates-movie/${params.id}`)
+      },
+      {
+        path: 'tv-show',
+        element: <TvShow></TvShow>
       }
     ]
   },

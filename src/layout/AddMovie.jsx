@@ -189,7 +189,7 @@ const AddMovie = () => {
 
   };
   return (
-    <div className="py-14 w-11/12 mx-auto text-center">
+    <div className="py-14 pb-96 w-11/12 mx-auto text-center">
       <h1 className="text-4xl font-semibold pt-20 pb-2">Upload a Movie</h1>
       <p>Share your favorite movie with the world!</p>
 

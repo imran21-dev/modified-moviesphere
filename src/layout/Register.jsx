@@ -15,7 +15,7 @@ const Register = () => {
     const [passValid, setPassValid] = useState(true)
     const handlePassword = (e) => {
         const validatePassword = (value) => {
-            const regex = /^(?=.*[A-Z])(?=.*[a-z])[A-Za-z]{6,}$/;
+            const regex = /^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d]{6,}$/;
             return regex.test(value);
           };
         const value = e.target.value;
@@ -102,11 +102,7 @@ const Register = () => {
         signInWithGoogle()
         .then(() => {
             
-            if (state) {
-                navigate(state.visit)
-            }else{
-                navigate('/')
-            }
+            navigate('/')
             
           })
           .catch((error) => {
@@ -201,7 +197,7 @@ const Register = () => {
 
           
          </div>
-         {passValid ? '': <span className="text-accent/90 text-left text-xs pt-1">Password must be at least one Uppercase, one Lowercase, no number and minimum 6 characters.</span>}
+         {passValid ? '': <span className="text-accent/90 text-left text-xs pt-1">Password must be at least one Uppercase, one Lowercase and minimum 6 character.</span>}
         </div>
 
         <div className="form-control pt-8">
