@@ -50,3 +50,9 @@ body{
  
 }
 
+#mobileNav .active{
+  font-weight: bold;
+  color: #ff0000e8;
+  background: #ff000035;
+  width: 100%;
+}

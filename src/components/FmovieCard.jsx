@@ -122,7 +122,7 @@ const Fmoviecard = ({ movie, fMovies, setFmovies }) => {
       <div className="pt-3 pb-4 flex md:justify-start justify-center  md:w-2/5 ">
         <button
           onClick={deleteFavourite}
-          className="btn min-h-max h-max py-2 md:py-3 md:px-8 text-[10px] md:text-sm rounded-full  bg-accent/90 text-neutral hover:bg-accent/90 border-accent/90 hover:bg-base-100 duration-300 hover:border-accent/90"
+          className="btn min-h-max h-max py-2 md:py-3 px-2 md:px-8 text-[10px] md:text-sm rounded-full  bg-accent/90 text-neutral hover:bg-accent/90 border-accent/90 hover:bg-base-100 duration-300 hover:border-accent/90"
         >
           Delete Favourite
         </button>

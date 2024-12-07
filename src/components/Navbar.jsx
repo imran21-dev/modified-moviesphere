@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import { RiMenu4Fill,  } from "react-icons/ri";
+import { RiCloseFill, RiMenu4Fill,  } from "react-icons/ri";
 import {  CiUser } from "react-icons/ci";
 import { useContext, useEffect, useState } from "react";
 
@@ -70,60 +70,72 @@ const Navbar = () => {
     })
   }
 
+  const [menu, setMenu] = useState(false)
+  const handleMenu = () => {
+    setMenu(!menu)
+  }
+
   return (
     <Headroom className="absolute top-0 left-0 z-50 w-full ">
 
     <div className={scrollPosition === 0 ? 'bg-gradient-to-b from-primary/10 to-transparent' :'bg-primary/20 backdrop-blur-md '}>
       <div className="navbar w-11/12 mx-auto p-0 md:p-2">
         <div className="navbar-start w-max">
-          <div className="dropdown">
+          <div className="relative z-50 ">
             <div
+              onClick={handleMenu}
               tabIndex={0}
               role="button"
               className="btn px-1 mr-1 rounded-full bg-transparent hover:bg-accent/90 hover:text-white border-none py-1 text-xl h-max min-h-max lg:hidden"
             >
-              <RiMenu4Fill />
+              {menu ?<RiCloseFill /> : <RiMenu4Fill />}
             </div>
             <ul
+            id="mobileNav"
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className={`${menu ?'block' : 'hidden'} absolute z-50 bg-primary border border-secondary rounded-3xl mt-3 min-w-40 max-w-max text-sm  p-2 shadow`}
             >
               <li className="">
                 <NavLink
+                onClick={handleMenu}
                   to="/"
-                  className="py-0 duration-300 rounded-none hover:text-accent px-3"
+                  className="py-[2px] rounded-xl duration-300  hover:text-accent px-3 flex"
                 >
                   Home
                 </NavLink>
               </li>
               <li className="">
                 <NavLink
+                onClick={handleMenu}
                   to="/all-movies"
-                  className="py-0 duration-300  rounded-none hover:text-accent px-3"
+                  className="py-[2px] rounded-xl duration-300  hover:text-accent px-3 flex"
                 >
                   All Movies
                 </NavLink>
               </li>
               <li className="">
                 <NavLink
+                onClick={handleMenu}
                   to="/add-movie"
-                  className="py-0 duration-300 rounded-none hover:text-accent px-3"
+                  className="py-[2px] rounded-xl duration-300 hover:text-accent px-3 flex"
                 >
                   Add Movie
                 </NavLink>
               </li>
               <li className="">
                 <NavLink
+                onClick={handleMenu}
                   to='/my-favourites'
-                  className="py-0 duration-300 rounded-none hover:text-accent px-3"
+                  className="py-[2px] rounded-xl duration-300 hover:text-accent px-3 flex"
                 >
                   My Favourites
                 </NavLink>
               </li>
               <li className="">
                 <NavLink
+                onClick={handleMenu}
                   to="/tv-show"
-                  className="py-0 duration-300 rounded-none hover:text-accent px-3"
+                  className="py-[2px] rounded-xl duration-300 hover:text-accent px-3 flex"
                 >
                   TV Show
                 </NavLink>
