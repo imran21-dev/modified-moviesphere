@@ -17,7 +17,7 @@ const ErrorPage = () => {
     return (
         <div className="flex justify-center items-center flex-col h-screen">
              <Helmet>
-                <title>Error | MovieSharp</title>
+                <title>Error | MovieSphere</title>
             </Helmet>
             <h1 className="text-5xl font-semibold py-5">{text}</h1>
             <h2 className="text-xl font-semibold">{slogun}</h2>

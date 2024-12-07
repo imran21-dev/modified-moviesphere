@@ -156,7 +156,7 @@ const AddMovie = () => {
       return;
     }
 
-    fetch("http://localhost:5000/add-movie", {
+    fetch("https://server-side-nu-swart.vercel.app/add-movie", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -214,17 +214,17 @@ const AddMovie = () => {
   },[])
 
   return (
-    <div className="py-14 pb-96 w-11/12 mx-auto text-center">
+    <div className="md:py-5  w-11/12 mx-auto text-center">
       <Helmet>
-        <title>Add Movie | MovieSharp</title>
+        <title>Add Movie | MovieSphere</title>
       </Helmet>
-      <h1 className="text-4xl font-semibold pt-20 pb-2">Upload a Movie</h1>
-      <p>Share your favorite movie with the world!</p>
+      <h1 className="text-2xl md:text-4xl font-semibold pt-20 pb-2">Upload a Movie</h1>
+      <p className="md:text-base text-xs pb-2">Share your favorite movie with the world!</p>
 
-      <form onSubmit={handleForm} className="w-8/12 mx-auto text-sm relative ">
+      <form onSubmit={handleForm} className="lg:w-8/12 mx-auto text-xs md:text-sm relative ">
         <div className="form-control pb-1">
           <label className="label">
-            <span className="label-text">Movie Poster</span>
+            <span className="label-text md:text-sm text-xs">Movie Poster</span>
           </label>
           <input
             type="text"
@@ -245,7 +245,7 @@ const AddMovie = () => {
 
         <div className="form-control pb-1">
           <label className="label">
-            <span className="label-text">Movie Title</span>
+            <span className="label-text md:text-sm text-xs">Movie Title</span>
           </label>
           <input
             type="text"
@@ -264,10 +264,10 @@ const AddMovie = () => {
           )}
         </div>
 
-        <section className="grid grid-cols-2 relative  gap-6">
+        <section className="">
           <div className="form-control pb-1">
             <label className="label">
-              <span className="label-text">Duration</span>
+              <span className="label-text md:text-sm text-xs">Duration</span>
             </label>
             <input
               type="number"
@@ -285,17 +285,17 @@ const AddMovie = () => {
               </span>
             )}
           </div>
-
-          <GenresSelector></GenresSelector>
-          <div className="absolute flex items-start justify-between pr-3 w-2/4 top-24 left-0">
+          <div className="flex items-start gap-10">
             <Release></Release>
 
             <StarRating></StarRating>
           </div>
+          <GenresSelector></GenresSelector>
+          
 
-          <div className="form-control absolute left-0 w-3/4 top-[180px] pb-1">
+          <div className="form-control ">
             <label className="label">
-              <span className="label-text">Summary</span>
+              <span className="label-text md:text-sm text-xs">Summary</span>
             </label>
             <textarea
               onKeyUp={handleSummary}
@@ -314,7 +314,7 @@ const AddMovie = () => {
             )}
           </div>
 
-          <div className="form-control absolute left-0 w-3/4 top-[400px]">
+          <div className="form-control pt-5">
             <input
               id="uploadBtn"
               disabled={
@@ -322,7 +322,7 @@ const AddMovie = () => {
                   ? false
                   : true
               }
-              className="btn  bg-accent/90 border-none rounded-full hover:bg-[#BEBEBE] text-white"
+              className="btn min-h-max h-max py-2 md:py-3 text-sm md:text-sm bg-accent/90 border-none rounded-full hover:bg-[#BEBEBE] text-white"
               type="submit"
               value="Upload"
             />

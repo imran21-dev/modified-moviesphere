@@ -30,7 +30,7 @@ const MovieDetails = () => {
     const favouriteMovie = {defaultId,poster,title,duration,summary,releaseYear,ratingStar,genreArray,email}  
         
     const addToFavourite = () => {
-        fetch('http://localhost:5000/add-favourite',{
+        fetch('https://server-side-nu-swart.vercel.app/add-favourite',{
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -92,7 +92,7 @@ const MovieDetails = () => {
             },
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/delete-movie/${_id}`,{
+                fetch(`https://server-side-nu-swart.vercel.app/delete-movie/${_id}`,{
                     method: 'DELETE'
                 })
                 .then(res => res.json())
@@ -141,41 +141,41 @@ const MovieDetails = () => {
     return (
         <div className="relative">
            <Helmet>
-                <title>Movie Details | {_id} | MovieSharp</title>
+                <title>Movie Details | {_id} | MovieSphere</title>
             </Helmet>
            
          {
            movie &&   <div className="w-11/12 mx-auto relative z-10">
-           <h1 className="text-4xl font-semibold pt-24 pb-6">Details</h1>
-           <section className="flex gap-6">
-               <div className="w-2/4 h-[600px]">
+           <h1 className="text-2xl md:text-4xl font-semibold pt-24 pb-6">Details</h1>
+           <section className="flex lg:flex-row flex-col gap-6">
+               <div className="lg:w-2/4 h-96 md:h-[600px]">
                    <img className="h-full w-full object-cover rounded-3xl" src={poster} alt="" />
                </div>
-               <div className="w-2/4 ">
-                 <h1 className="text-3xl  font-semibold">{title}</h1>
-                 <h2 className="text-xl py-2">{releaseYear}</h2>
-                <div className="flex gap-2">
+               <div className="lg:w-2/4 ">
+                 <h1 className="text-xl md:text-3xl  font-semibold">{title}</h1>
+                 <h2 className="md:text-xl py-2">{releaseYear}</h2>
+                <div className="flex md:gap-2">
                 <Rating
                  placeholderRating={ratingStar}
                  readonly
                  className=""
                  emptySymbol={
-                     <FaStar className="text-gray-300 text-2xl mr-[2px]" />
+                     <FaStar className="text-gray-300 md:text-2xl mr-[2px]" />
                  }
                  placeholderSymbol={
-                     <FaStar className="text-[#FFAA00] text-2xl mr-[2px]" />
+                     <FaStar className="text-[#FFAA00] md:text-2xl mr-[2px]" />
  
                  }
                  fullSymbol={
-                     <FaStar className="text-[#FFAA00] text-2xl mr-[2px]" />
+                     <FaStar className="text-[#FFAA00] md:text-2xl mr-[2px]" />
  
                  }
-               /> <span className="text-lg">({ratingStar})</span>
+               /> <span className="md:text-lg md:-mt-0 -mt-[2px]">({ratingStar})</span>
                 </div>
                 <h2 className="py-2">{genreArray.join(' | ')}</h2>
                 <h1 className="font-bold"></h1>
                 <h2 className="flex truncate pt-1 items-center gap-2"><RxStopwatch className="text-xl"/> <span className="font-medium">Duration :</span>{duration} mins</h2>
-                <div className="pt-5 grid grid-cols-2 w-2/4 gap-6">
+                <div className="pt-5 grid grid-cols-2 2xl:w-2/4 gap-6">
 
                    <button onClick={addToFavourite} className="btn min-h-max border border-transparent hover:border-neutral/10 hover:bg-neutral/20 h-max py-3 flex gap-1 items-center rounded-full bg-accent/90 text-white">Add to Favorite </button>
 
@@ -187,7 +187,7 @@ const MovieDetails = () => {
 
                 </div>
                 <h1 className="pt-10 font-bold text-lg">Summary :</h1>
-                <p className="py-1">{summary}</p>
+                <p className="py-1 md:text-base text-sm">{summary}</p>
                </div>
            </section>
            <Link to='/all-movies' className="btn rounded-full flex gap-0 w-max mx-auto btn-outline px-20 mt-10">See all Movies <IoIosArrowRoundForward className="text-3xl " /></Link>

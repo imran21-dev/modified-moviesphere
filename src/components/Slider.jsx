@@ -101,44 +101,44 @@ const Slider = () => {
         loop={true}
         spaceBetween={30}
         slidesPerView={1}
-        className="mySwiper h-screen z-0 flex justify-center"
+        className="mySwiper h-80 md:h-screen z-0 flex justify-center"
       >
         {
         movies.map(movie => <SwiperSlide key={movie.name}>
             <div className="h-full relative">
               <img className="h-full w-full object-cover" src={movie.img} alt="" />
-                <div className="w-full h-64 bg-gradient-to-b from-primary to-transparent absolute top-0"></div>
-              <div className="absolute bg-gradient-to-r from-primary to-transparent h-full w-2/5 top-0 flex flex-col justify-end  pl-20 pb-20 left-0">
-                <h1 className="text-3xl font-bold">{movie.name}</h1>
-                <p className="text-xl font-semibold">{movie.releaseYear}</p>
-                <div className="flex items-center gap-2">
+                <div className="w-full h-20 md:h-64 bg-gradient-to-b from-primary to-transparent absolute top-0"></div>
+              <div className="absolute bg-gradient-to-r from-primary to-transparent h-full md:w-2/5 top-0 flex flex-col justify-end pl-3 pb-3 pr-3 md:pr-0 md:pl-20 md:pb-20 left-0">
+                <h1 className="md:text-3xl text- font-bold">{movie.name}</h1>
+                <p className="md:text-xl text-xs font-semibold">{movie.releaseYear}</p>
+                <div className="flex items-center gap-1 md:gap-2">
 
                 <Rating
                   placeholderRating={movie.rating}
                   readonly
-                  className="py-3"
+                  className="md:py-3"
                   emptySymbol={
-                      <FaStar className="text-gray-300 text-2xl mr-[2px]" />
+                      <FaStar className="text-gray-300 md:text-2xl text-xs mr-[2px]" />
                   }
                   placeholderSymbol={
-                      <FaStar className="text-[#FFAA00] text-2xl mr-[2px]" />
+                      <FaStar className="text-[#FFAA00] md:text-2xl text-xs mr-[2px]" />
   
                   }
                   fullSymbol={
-                      <FaStar className="text-[#FFAA00] text-2xl mr-[2px]" />
+                      <FaStar className="text-[#FFAA00] md:text-2xl text-xs mr-[2px]" />
   
                   }
                 />
-                <span className="">({movie.rating})</span>
+                <span className="text-[9px] md:text-base md:mt-0 mt-1">({movie.rating})</span>
                 </div>
                 
-                  <div className="flex items-center gap-2">
+                  <div className="flex md:text-base text-xs items-center gap-2">
                   
                     {movie.genre.join(' | ')}
                    
                   </div>
-                  <p className="text-sm py-5 opacity-70">Two imprisoned men bond over decades, finding solace and eventual redemption through acts of common decency.</p>
-                  <button className="btn w-max bg-accent/90 text-white border-accent/90 hover:bg-transparent hover:border-accent/90 rounded-full px-7"> <IoMdPlay className="text-xl" />Watch</button>
+                  <p className="text-[10px] md:text-sm py-2 md:py-5 opacity-70">Two imprisoned men bond over decades, finding solace and eventual redemption through acts of common decency.</p>
+                  <button className="btn min-h-max h-max py-1 md:py-3 w-max text-xs md:text-sm bg-accent/90 text-white border-accent/90 hover:bg-transparent hover:border-accent/90 rounded-full md:px-7 px-3 flex gap-1"> <IoMdPlay className="md:text-xl" />Watch</button>
               </div>
             </div>
           </SwiperSlide>)

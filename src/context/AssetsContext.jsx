@@ -13,7 +13,11 @@ const AssetsContext = ({children}) => {
     const [release, setRelease] = useState(false)
     const [rating, setRating] = useState(0);
     const [selectedGenre, setSelectedGenre] = useState([]);
-
+    
+    // update---------------
+    const [releaseUp, setReleaseUp] = useState(false)
+    const [ratingUp, setRatingUp] = useState(0);
+    const [selectedGenreUp, setSelectedGenreUp] = useState([]);
 
 
 
@@ -21,6 +25,12 @@ const AssetsContext = ({children}) => {
     const [ratingStar, setRatingStar] = useState(null)
     const [genreArray, setGenreArray] = useState([])
 
+
+    
+    // update---------------
+    const [releaseYearUp, setReleaseYearUp] = useState(null)
+    const [ratingStarUp, setRatingStarUp] = useState(null)
+    const [genreArrayUp, setGenreArrayUp] = useState([])
     
 
 
@@ -30,6 +40,17 @@ const AssetsContext = ({children}) => {
     const [releaseTool, setReleaseTool] = useState(false)
     const [ratingTool, setRatingTool] = useState(false)
     const [genreTooltip, setGenreTooltip] = useState(false)
+
+
+
+    // update---------------    
+    const [releaseToolUp, setReleaseToolUp] = useState(false)
+    const [ratingToolUp, setRatingToolUp] = useState(false)
+    const [genreTooltipUp, setGenreTooltipUp] = useState(false)
+
+
+
+
 
     const createAccount = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
@@ -80,6 +101,7 @@ const AssetsContext = ({children}) => {
         setRating,
         selectedGenre,
         setSelectedGenre,
+        releaseUp, setReleaseUp,ratingUp, setRatingUp,selectedGenreUp, setSelectedGenreUp,releaseYearUp, setReleaseYearUp,ratingStarUp, setRatingStarUp,genreArrayUp, setGenreArrayUp,releaseToolUp, setReleaseToolUp,ratingToolUp, setRatingToolUp,genreTooltipUp, setGenreTooltipUp
        
 
     }

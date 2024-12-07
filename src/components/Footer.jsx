@@ -9,19 +9,19 @@ const Footer = () => {
   return (
    <div className="bg-neutral/10 backdrop-blur-md mt-20">
      <div className="w-11/12 mx-auto pt-20">
-      <div className="flex justify-between">
-       <div className="flex flex-col w-2/6">
-       <Link to="/" className="font-bold text-[1.4rem] w-max">
+      <div className="flex flex-col md:flex-row justify-between">
+       <div className="flex flex-col md:w-2/6">
+       <Link to="/" className="font-bold md:text-[1.4rem]  w-max">
           Movie
-          <span className="font-[Yellowtail] pr-[2px] text-2xl text-accent/80">
+          <span className="font-[Yellowtail] pr-[2px] text-xl md:text-2xl text-accent/80">
             S
           </span>
           phere
         </Link>
-        <p className=" text-sm py-2">
+        <p className="text-xs md:text-sm py-2">
         Discover, explore, and share your favorite movies on MovieSharp. Your ultimate destination for trending films, personalized recommendations, and unforgettable cinematic experiences. Stay connected with us and never miss out on the magic of movies!
         </p>
-        <div className="flex items-center gap-2 pt-5">
+        <div className="flex items-center gap-2 pt-2 md:pt-5">
         <a target="_blank" href="https://www.facebook.com/mdimran.parves.9" className="text-xl hover:text-accent/90 duration-200"><FaFacebook/></a>
         <a target="_blank" href="https://www.instagram.com/mimranparves/" className="text-xl hover:text-accent/90 duration-200"><FaInstagram/></a>
         <a target="_blank" href="https://x.com/Mohamma85577121" className="text-xl hover:text-accent/90 duration-200"><FaXTwitter/></a>
@@ -29,16 +29,16 @@ const Footer = () => {
         </div>
        </div>
        <div>
-          <h1 className="font-semibold">Contact</h1>
-          <ul className="pt-2">
-            <li className="text-sm flex items-center gap-2"><IoIosCall/> +8801301460344</li>
-            <li className="text-sm flex items-center gap-2"><IoIosMail /> mimranparves@gmail.com</li>
-            <li className="text-sm flex items-center gap-2"><MdLocationPin />Sujanagar, Pabna, Bangladesh</li>
+          <h1 className="font-semibold md:pt-0 pt-5" >Contact</h1>
+          <ul className="md:pt-2">
+            <li className="text-xs md:text-sm flex items-center gap-2"><IoIosCall/> +8801301460344</li>
+            <li className="text-xs md:text-sm flex items-center gap-2"><IoIosMail /> mimranparves@gmail.com</li>
+            <li className="text-xs md:text-sm flex items-center gap-2"><MdLocationPin />Sujanagar, Pabna, Bangladesh</li>
            
           </ul>
        </div>
       </div>
-      <h2 className="text-sm w-full border-t border-secondary py-5 text-center mt-8">&copy; MovieSharp 2024</h2>
+      <h2 className="text-xs md:text-sm w-full border-t border-secondary py-5 text-center mt-8">&copy; MovieSharp 2024</h2>
     </div>
    </div>
   );

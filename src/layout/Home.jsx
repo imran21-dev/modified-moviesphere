@@ -13,7 +13,7 @@ const Home = () => {
     return (
         <div className="">
             <Helmet>
-                <title>Home | MovieSharp</title>
+                <title>Home | MovieSphere</title>
             </Helmet>
             <Slider></Slider>
             <Featured></Featured>

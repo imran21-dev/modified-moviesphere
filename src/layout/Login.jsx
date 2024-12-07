@@ -95,25 +95,25 @@ const Login = () => {
   return (
     <>
      <Helmet>
-                <title>Login | MovieSharp</title>
+                <title>Login | MovieSphere</title>
             </Helmet>
     {loading.state === 'loading' ? <div className="h-screen flex justify-center items-center"><GridLoader
         size={10}
         color="#bebebe"
        
         /></div>
-        : <div className="py-20 h-screen flex flex-col justify-center">
-        <section className="w-4/12 mx-auto">
-          <h1 className="text-3xl pb-2 font-semibold">Welcome Back!</h1>
-          <p className="pb-8 text-sm text-neutral/40">
+        : <div className="py-96 md:py-20 h-screen flex flex-col justify-center">
+        <section className="md:w-4/12 w-9/12 mx-auto">
+          <h1 className="text-xl md:text-3xl pb-2 font-semibold">Welcome Back!</h1>
+          <p className="md:pb-8 pb-3 text-xs md:text-sm text-neutral/40">
             Login and continue your cinematic journey!
           </p>
   
-          <form onSubmit={handleSubmit(onSubmit)} className="w-full text-sm relative">
+          <form onSubmit={handleSubmit(onSubmit)} className="w-full text-xs md:text-sm relative ">
             {/* Email Field */}
             <div className="form-control pb-1">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text md:text-sm text-xs">Email</span>
               </label>
               <div className="flex items-center w-full border rounded-full -ml-1 border-secondary">
                 <CiMail className="text-lg mx-3" />
@@ -132,7 +132,7 @@ const Login = () => {
             {/* Password Field */}
             <div className="form-control pb-1">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text md:text-sm text-xs">Password</span>
               </label>
               <div className="flex items-center w-full border rounded-full -ml-1 border-secondary">
                 <CiLock className="text-lg mx-3" />
@@ -154,16 +154,16 @@ const Login = () => {
               {errors.password && (
                 <p className="text-red-500 text-xs mt-1">{errors.password.message}</p>
               )}
-              <Link className="text-neutral/30 text-xs pt-1 hover:underline">
+              <Link className="text-neutral/30 text-[11px] md:text-xs pt-1 hover:underline">
                 Forgot password?
               </Link>
             </div>
   
             {/* Submit Button */}
-            <div className="form-control pt-8">
+            <div className="form-control pt-3 md:pt-8">
               <button
                 type="submit"
-                className="btn -ml-1 bg-accent/90 rounded-full min-h-max h-max py-3 text-white border-none hover:bg-[#BEBEBE]"
+                className="btn -ml-1 bg-accent/90 rounded-full text-xs md:text-[14px] min-h-max h-max py-3 text-white border-none hover:bg-[#BEBEBE]"
               >
                 Login
               </button>
@@ -181,13 +181,13 @@ const Login = () => {
           </form>
   
           {/* Google Sign-In */}
-          <div className="divider">or</div>
+          <div className="divider text-sm md:text-base">or</div>
           <div className="mx-auto w-max pt-4">
             <button
               onClick={openPopup}
-              className="btn px-10 btn-outline border-secondary rounded-full"
+              className="btn min-h-max h-max py-3 text-xs md:text-sm px-10 btn-outline border-secondary rounded-full"
             >
-              <img className="w-5" src={google} alt="" /> Sign in with Google
+              <img className="w-4 md:w-5" src={google} alt="" /> Sign in with Google
             </button>
           </div>
         </section>

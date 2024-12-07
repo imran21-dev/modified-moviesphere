@@ -34,7 +34,7 @@ const router = createBrowserRouter([
     children:[
       {
         path: '/',
-        loader : () => fetch('http://localhost:5000/featured-movies'),
+        loader : () => fetch('https://server-side-nu-swart.vercel.app/featured-movies'),
         element: <Home></Home>,
       },
       {
@@ -52,22 +52,22 @@ const router = createBrowserRouter([
       {
         path:'/all-movies',
         element: <AllMovies></AllMovies>,
-        loader: () => fetch('http://localhost:5000/')
+        loader: () => fetch('https://server-side-nu-swart.vercel.app/')
       },
       {
         path: '/movie-details/:id',
-        loader: ({params}) => fetch(`http://localhost:5000/movieDetails/${params.id}`),
+        loader: ({params}) => fetch(`https://server-side-nu-swart.vercel.app/movieDetails/${params.id}`),
         element: <MovieDetailsPrivate><MovieDetails></MovieDetails></MovieDetailsPrivate>,
       },
       {
         path: '/my-favourites',
         element: <FavouriteMoviesPrivate><FavouriteMovies></FavouriteMovies></FavouriteMoviesPrivate>,
-        loader: () => fetch('http://localhost:5000/get-favourites')
+        loader: () => fetch('https://server-side-nu-swart.vercel.app/get-favourites')
       },
       {
         path: '/update-movie/:id',
         element: <UpdateMoviePrivate><UpdateMovie></UpdateMovie></UpdateMoviePrivate>,
-        loader: ({params}) => fetch(`http://localhost:5000/updates-movie/${params.id}`)
+        loader: ({params}) => fetch(`https://server-side-nu-swart.vercel.app/updates-movie/${params.id}`)
       },
       {
         path: 'tv-show',
