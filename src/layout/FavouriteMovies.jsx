@@ -1,9 +1,10 @@
 import { Link, useLoaderData } from "react-router-dom";
 import Fmoviecard from "../components/FmovieCard";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../context/AssetsContext";
 
 import { PiEmpty } from "react-icons/pi";
+import { Helmet } from "react-helmet-async";
 
 
 const FavouriteMovies = () => {
@@ -13,8 +14,15 @@ const FavouriteMovies = () => {
     const userFavourites = favouriteMovies.filter(movie => movie.email === currentEmail)
   
     const [fMovies, setFmovies] = useState(userFavourites)
+    useEffect(()=>{
+      window.scrollTo(0,0)
+  },[])
     return (
         <div className="w-11/12 mx-auto">
+
+<Helmet>
+                <title>Favourite Movies | MovieSharp</title>
+            </Helmet>
             {
              fMovies.length < 1 ? <div className="flex flex-col justify-center items-center h-screen">
                 <PiEmpty className="text-7xl mb-5" />

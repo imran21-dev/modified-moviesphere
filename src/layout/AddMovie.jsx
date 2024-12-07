@@ -1,19 +1,32 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import GenresSelector from "../components/GenresSelector";
 import Release from "../components/Release";
 import StarRating from "../components/StarRating";
 import { ThemeContext } from "../context/AssetsContext";
 import Swal from "sweetalert2";
-
+import { Helmet } from "react-helmet-async";
 
 const AddMovie = () => {
-  const { releaseYear, ratingStar, genreArray,setReleaseTool, setRatingTool, setGenreTooltip,user,setRelease,setRating,setSelectedGenre,setReleaseYear,setRatingStar,setGenreArray } = useContext(ThemeContext);
+  const {
+    releaseYear,
+    ratingStar,
+    genreArray,
+    setReleaseTool,
+    setRatingTool,
+    setGenreTooltip,
+    user,
+    setRelease,
+    setRating,
+    setSelectedGenre,
+    setReleaseYear,
+    setRatingStar,
+    setGenreArray,
+  } = useContext(ThemeContext);
 
   const [posterValid, setPosterValid] = useState(true);
   const [titleValid, setTitleValid] = useState(true);
   const [durationValid, setDurationValid] = useState(true);
   const [summaryValid, setSummaryValid] = useState(true);
- 
 
   const validateURL = (url) => {
     try {
@@ -45,9 +58,7 @@ const AddMovie = () => {
     }
   };
   const handleTitle = (e) => {
-    const titleRegX = /^(?!\s)(?=.{2,}).*$/
-
-
+    const titleRegX = /^(?!\s)(?=.{2,}).*$/;
 
     const value = e.target.value;
     const target = e.target;
@@ -114,7 +125,6 @@ const AddMovie = () => {
     }
   };
 
-  
   const handleForm = (e) => {
     e.preventDefault();
 
@@ -123,7 +133,7 @@ const AddMovie = () => {
     const title = form.title.value;
     const duration = form.duration.value;
     const summary = form.summary.value;
-    const {email} = user
+    const { email } = user;
     const movie = {
       poster,
       title,
@@ -132,86 +142,82 @@ const AddMovie = () => {
       releaseYear,
       ratingStar,
       genreArray,
-      email
+      email,
     };
 
     if (!releaseYear) {
-      setReleaseTool(true)
-      return
+      setReleaseTool(true);
+      return;
     } else if (!ratingStar) {
-      setRatingTool(true)
-      return
-    }
-     else if (!genreArray.length > 0) {
-      setGenreTooltip(true)
-      return
+      setRatingTool(true);
+      return;
+    } else if (!genreArray.length > 0) {
+      setGenreTooltip(true);
+      return;
     }
 
-    fetch('http://localhost:5000/add-movie',{
-      method: 'POST',
-      headers:{
-        'content-type' : 'application/json'
+    fetch("http://localhost:5000/add-movie", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
       },
-      body: JSON.stringify(movie)
+      body: JSON.stringify(movie),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            icon: "success",
+            title: "Uploaded !",
+            text: "Successfully Uploaded this movie !",
+            confirmButtonText: "Okay",
+            scrollbarPadding: false,
+            customClass: {
+              title: "text-xl md:text-3xl font-bold ",
+              text: "text-3xl",
+              popup:
+                "bg-[#021308] text-white rounded-3xl outline outline-[#16A34A]",
+              confirmButton: "bg-[#16A34A] rounded-full py-[10px] px-[30px]",
+            },
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Failed !",
+            text: `Something went wrong`,
+            confirmButtonText: "Retry",
+            scrollbarPadding: false,
+            customClass: {
+              title: "text-xl md:text-3xl font-bold ",
+              text: "text-3xl",
+              popup:
+                "bg-[#1d0602] text-white rounded-3xl outline outline-[#f12804]",
+              confirmButton: "bg-[#f12804] rounded-full py-[10px] px-[30px]",
+            },
+          });
+        }
+      });
+    form.reset();
+    setRelease(false);
+    setRating(0);
+    setSelectedGenre([]);
+    setReleaseYear(null);
+    setRatingStar(null);
+    setGenreArray([]);
 
-    })
-    .then(res => res.json())
-    .then(data => {
-      if (data.insertedId) {
-      
-        Swal.fire({
-          icon: "success",
-          title: "Uploaded !",
-          text: "Successfully Uploaded this movie !",
-          confirmButtonText: "Okay",
-          scrollbarPadding: false,
-        customClass: {
-          title: 'text-xl md:text-3xl font-bold ',
-          text: 'text-3xl',
-          popup: "bg-[#021308] text-white rounded-3xl outline outline-[#16A34A]",
-          confirmButton: "bg-[#16A34A] rounded-full py-[10px] px-[30px]",
-        },
-        });
-      }else{
-     
-        Swal.fire({
-          icon: "error",
-          title: 'Failed !',
-          text: `Something went wrong`,
-          confirmButtonText: "Retry",
-          scrollbarPadding: false,
-          customClass: {
-            title: 'text-xl md:text-3xl font-bold ',
-            text: 'text-3xl',
-            popup: "bg-[#1d0602] text-white rounded-3xl outline outline-[#f12804]",
-            confirmButton: "bg-[#f12804] rounded-full py-[10px] px-[30px]",
-          },
-       
-        });
-      }
-    })
-    form.reset()
-    setRelease(false)
-    setRating(0)
-    setSelectedGenre([])
-    setReleaseYear(null)
-    setRatingStar(null)
-    setGenreArray([])
+
    
-
-
-
-
-
-
-
-
-
-
-
   };
+
+  useEffect(()=>{
+      window.scrollTo(0,0)
+  },[])
+
   return (
     <div className="py-14 pb-96 w-11/12 mx-auto text-center">
+      <Helmet>
+        <title>Add Movie | MovieSharp</title>
+      </Helmet>
       <h1 className="text-4xl font-semibold pt-20 pb-2">Upload a Movie</h1>
       <p>Share your favorite movie with the world!</p>
 
@@ -228,9 +234,14 @@ const AddMovie = () => {
             className={`px-5 rounded-full py-2 placeholder:text-neutral/30 placeholder:font-thin bg-transparent border  focus:outline-none border-secondary`}
             required
           />
-          {posterValid ? '': <span className="text-accent/90 text-left text-xs pt-1">Enter a valid poster image URL</span>}
+          {posterValid ? (
+            ""
+          ) : (
+            <span className="text-accent/90 text-left text-xs pt-1">
+              Enter a valid poster image URL
+            </span>
+          )}
         </div>
-
 
         <div className="form-control pb-1">
           <label className="label">
@@ -244,7 +255,13 @@ const AddMovie = () => {
             className={`px-5 py-2 placeholder:text-neutral/30 placeholder:font-thin bg-transparent border border-secondary focus:outline-none rounded-full `}
             required
           />
-          {titleValid ? '': <span className="text-accent/90 text-left text-xs pt-1">Title must be at least 2 characters</span>}
+          {titleValid ? (
+            ""
+          ) : (
+            <span className="text-accent/90 text-left text-xs pt-1">
+              Title must be at least 2 characters
+            </span>
+          )}
         </div>
 
         <section className="grid grid-cols-2 relative  gap-6">
@@ -260,14 +277,19 @@ const AddMovie = () => {
               className={`px-5 rounded-full py-2 number placeholder:text-neutral/30 placeholder:font-thin bg-transparent border border-secondary focus:outline-none`}
               required
             />
-            {durationValid ? '': <span className="text-accent/90 text-left text-xs pt-1">Duration must be greater than 60 minutes</span>}
+            {durationValid ? (
+              ""
+            ) : (
+              <span className="text-accent/90 text-left text-xs pt-1">
+                Duration must be greater than 60 minutes
+              </span>
+            )}
           </div>
 
           <GenresSelector></GenresSelector>
           <div className="absolute flex items-start justify-between pr-3 w-2/4 top-24 left-0">
-          
             <Release></Release>
-       
+
             <StarRating></StarRating>
           </div>
 
@@ -283,7 +305,13 @@ const AddMovie = () => {
               rows={7}
               className="px-5 rounded-3xl resize-none py-2 placeholder:text-neutral/30 placeholder:font-thin bg-transparent  border border-secondary focus:outline-none"
             ></textarea>
-             {summaryValid ? '': <span className="text-accent/90 text-left text-xs pt-1">Summary must be at least 10 characters</span>}
+            {summaryValid ? (
+              ""
+            ) : (
+              <span className="text-accent/90 text-left text-xs pt-1">
+                Summary must be at least 10 characters
+              </span>
+            )}
           </div>
 
           <div className="form-control absolute left-0 w-3/4 top-[400px]">

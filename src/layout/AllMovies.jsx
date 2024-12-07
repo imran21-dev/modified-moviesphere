@@ -1,7 +1,8 @@
 import { useLoaderData,  } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
 import { CiSearch } from "react-icons/ci";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const AllMovies = () => {
   const loadedMovies = useLoaderData();
@@ -26,9 +27,14 @@ const AllMovies = () => {
 
     
   }
-  
+  useEffect(()=>{
+    window.scrollTo(0,0)
+},[])
   return (
     <div className="py-24 w-11/12 mx-auto">
+       <Helmet>
+                <title>All Movies | MovieSharp</title>
+            </Helmet>
       <div className="flex justify-between items-center">
       <div>
       <h1 className="text-4xl font-semibold  pb-3">All Movies</h1>

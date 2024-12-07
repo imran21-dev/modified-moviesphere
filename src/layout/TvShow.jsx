@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CiStreamOn } from "react-icons/ci";
 import jamuna from '../assets/jamuna.png'
 import nasa from '../assets/nasa.webp'
@@ -7,6 +7,7 @@ import citi from '../assets/citi.jpg'
 import alzaa from '../assets/alzaaa.png'
 import alza from '../assets/alza.jpg'
 import fr from '../assets/fr.png'
+import { Helmet } from "react-helmet-async";
 
 const TvShow = () => {
 
@@ -15,9 +16,15 @@ const TvShow = () => {
     const handleChannel = (channelLink) => {
         setLiveTV(channelLink)
     }
+    useEffect(()=>{
+        window.scrollTo(0,0)
+    },[])
 
     return (
         <div className="w-11/12 gap-6 flex mx-auto">
+             <Helmet>
+                <title>TV Show | MovieSharp</title>
+            </Helmet>
            <div className="w-10/12 ">
             
            <section className="h-screen pt-16 pb-3">

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 import { IoIosArrowRoundForward } from "react-icons/io";
 
@@ -7,6 +7,7 @@ import Rating from "react-rating";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { ThemeContext } from "../context/AssetsContext";
+import { Helmet } from "react-helmet-async";
 
 
 const MovieDetails = () => {
@@ -133,10 +134,15 @@ const MovieDetails = () => {
             }
           });
     }
-
+    useEffect(()=>{
+      window.scrollTo(0,0)
+  },[])
     
     return (
         <div className="relative">
+           <Helmet>
+                <title>Movie Details | {_id} | MovieSharp</title>
+            </Helmet>
            
          {
            movie &&   <div className="w-11/12 mx-auto relative z-10">

@@ -1,12 +1,13 @@
 import { CiLock, CiMail } from "react-icons/ci";
 import { Link, useLocation, useNavigate, useNavigation } from "react-router-dom";
 import google from "../assets/google.png";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import { ThemeContext } from "../context/AssetsContext";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 import { GridLoader } from "react-spinners";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { state } = useLocation();
@@ -87,9 +88,15 @@ const Login = () => {
   const showPass = () => {
     setShowHide(!showHide);
   };
+  useEffect(()=>{
+    window.scrollTo(0,0)
+},[])
 
   return (
     <>
+     <Helmet>
+                <title>Login | MovieSharp</title>
+            </Helmet>
     {loading.state === 'loading' ? <div className="h-screen flex justify-center items-center"><GridLoader
         size={10}
         color="#bebebe"

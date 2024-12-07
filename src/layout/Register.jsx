@@ -1,13 +1,14 @@
 import { CiLink, CiLock, CiMail, CiUser } from "react-icons/ci";
 import { Link, useLocation, useNavigate, useNavigation } from "react-router-dom";
 import google from '../assets/google.png'
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import { ThemeContext } from "../context/AssetsContext";
 import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../provider/firebase.config";
 import { GridLoader } from "react-spinners";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
     const {state} = useLocation()
@@ -140,9 +141,14 @@ const Register = () => {
           });
         
     }
-
+    useEffect(()=>{
+      window.scrollTo(0,0)
+  },[])
     return (
        <>
+        <Helmet>
+                <title>Register | MovieSharp</title>
+            </Helmet>
         {
          loading.state === 'loading' ?<div className="h-screen flex justify-center items-center"><GridLoader
          size={10}

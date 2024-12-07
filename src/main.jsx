@@ -24,6 +24,7 @@ import UpdateMoviePrivate from './private/UpdateMoviePrivate';
 import UpdateMovie from './layout/UpdateMovie';
 import ErrorPage from './layout/ErrorPage';
 import TvShow from './layout/TvShow';
+import { HelmetProvider } from 'react-helmet-async';
 
 const router = createBrowserRouter([
   {
@@ -78,8 +79,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+      <HelmetProvider>
       <AssetsContext>
       <RouterProvider router={router} />
       </AssetsContext>
+      </HelmetProvider>
   </StrictMode>,
 )
