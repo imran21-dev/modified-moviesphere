@@ -1,9 +1,12 @@
 
 ## Assignment-10
 
+- **Category :** Orchid
+
 - **Name :** [MovieSphere](https://moviesharp-ff843.web.app/)
 
 - **Live Link :** [https://moviesharp-ff843.web.app/](https://moviesharp-ff843.web.app/)
+
 
 - **Features -**
     - ***Explore Top-Rated and Comprehensive Movie Listings -***  The website features a Home Page showcasing top-rated movies in the Featured Movies section. Users can navigate to the All Movies page to browse the complete collection. By clicking the "See Details" button at the bottom of each movie card, users can explore detailed information about any movie effortlessly
