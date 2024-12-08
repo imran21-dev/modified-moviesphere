@@ -125,10 +125,10 @@ const Navbar = () => {
               <li className="">
                 <NavLink
                 onClick={handleMenu}
-                  to='/my-favourites'
+                  to='/my-favorites'
                   className="py-[2px] rounded-xl duration-300 hover:text-accent px-3 flex"
                 >
-                  My Favourites
+                  My Favorites
                 </NavLink>
               </li>
               <li className="">
@@ -178,10 +178,10 @@ const Navbar = () => {
             </li>
             <li className="">
               <NavLink
-                to='/my-favourites'
+                to='/my-favorites'
                 className="py-0 duration-300 rounded-none hover:text-accent px-3"
               >
-                My Favourites
+                My Favorites
               </NavLink>
             </li>
             <li className="">

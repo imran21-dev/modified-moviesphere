@@ -43,7 +43,7 @@ const MovieDetails = () => {
                 Swal.fire({
                     icon: "success",
                     title: "Added !",
-                    text: "This Movie is added to your Favourite list",
+                    text: "This Movie is added to your Favorite list",
                     confirmButtonText: "Got it",
                     scrollbarPadding: false,
                   customClass: {
@@ -199,7 +199,7 @@ const MovieDetails = () => {
          {
          !movie &&   <div className="h-screen flex items-center flex-col justify-center">
             <h1>Oops! This movie isn&apos;t available on MovieSharp right now.</h1>
-            <Link className="btn mt-10 bg-accent/90 text-white rounded-full border-none px-5 hover:bg-neutral/20 duration-300" to='/my-favourites'>Back to Favourites</Link>
+            <Link className="btn mt-10 bg-accent/90 text-white rounded-full border-none px-5 hover:bg-neutral/20 duration-300" to='/my-favorites'>Back to Favorites</Link>
          </div>
          }
         </div>

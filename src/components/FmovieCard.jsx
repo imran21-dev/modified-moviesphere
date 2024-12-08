@@ -47,7 +47,7 @@ const Fmoviecard = ({ movie, fMovies, setFmovies }) => {
               Swal.fire({
                 icon: "success",
                 title: "Deleted !",
-                text: "Successfully deleted from your favourite list !",
+                text: "Successfully deleted from your favorite list !",
                 confirmButtonText: "Okay",
                 scrollbarPadding: false,
               customClass: {
@@ -124,7 +124,7 @@ const Fmoviecard = ({ movie, fMovies, setFmovies }) => {
           onClick={deleteFavourite}
           className="btn min-h-max h-max py-2 md:py-3 px-2 md:px-8 text-[10px] md:text-sm rounded-full  bg-accent/90 text-neutral hover:bg-accent/90 border-accent/90 hover:bg-base-100 duration-300 hover:border-accent/90"
         >
-          Delete Favourite
+          Delete Favorite
         </button>
       </div>
     </div>

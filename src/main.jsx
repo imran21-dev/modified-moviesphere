@@ -60,7 +60,7 @@ const router = createBrowserRouter([
         element: <MovieDetailsPrivate><MovieDetails></MovieDetails></MovieDetailsPrivate>,
       },
       {
-        path: '/my-favourites',
+        path: '/my-favorites',
         element: <FavouriteMoviesPrivate><FavouriteMovies></FavouriteMovies></FavouriteMoviesPrivate>,
         loader: () => fetch('https://server-side-nu-swart.vercel.app/get-favourites')
       },

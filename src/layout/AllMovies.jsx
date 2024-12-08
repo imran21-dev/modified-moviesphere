@@ -1,4 +1,4 @@
-import { useLoaderData,  } from "react-router-dom";
+import { useLoaderData, } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
 import { CiSearch } from "react-icons/ci";
 import { useEffect, useState } from "react";
@@ -7,6 +7,8 @@ import { Helmet } from "react-helmet-async";
 const AllMovies = () => {
   const loadedMovies = useLoaderData();
   const [allMovies, setAllMovies] = useState(loadedMovies)
+
+ 
   
   const handleSearch = (e) => {
       e.preventDefault()
