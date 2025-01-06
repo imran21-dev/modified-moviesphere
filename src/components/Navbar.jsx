@@ -15,10 +15,6 @@ import Swal from "sweetalert2";
 
 const Navbar = () => {
   const {user,loadPrivate} = useContext(ThemeContext)
- 
-
-
-
   const [scrollPosition, setScrollPosition] = useState(0);
 
 
@@ -104,33 +100,35 @@ const Navbar = () => {
                   Home
                 </NavLink>
               </li>
-              <li className="">
-                <NavLink
-                onClick={handleMenu}
-                  to="/all-movies"
-                  className="py-[2px] rounded-xl duration-300  hover:text-accent px-3 flex"
-                >
-                  All Movies
-                </NavLink>
-              </li>
-              <li className="">
-                <NavLink
-                onClick={handleMenu}
-                  to="/add-movie"
-                  className="py-[2px] rounded-xl duration-300 hover:text-accent px-3 flex"
-                >
-                  Add Movie
-                </NavLink>
-              </li>
-              <li className="">
-                <NavLink
-                onClick={handleMenu}
-                  to='/my-favorites'
-                  className="py-[2px] rounded-xl duration-300 hover:text-accent px-3 flex"
-                >
-                  My Favorites
-                </NavLink>
-              </li>
+              {
+           user && 
+           <>
+           <li className="">
+              <NavLink
+                to="/all-movies"
+                className="py-0 duration-300  rounded-none hover:text-accent px-3"
+              >
+                All Movies
+              </NavLink>
+            </li>
+            <li className="">
+              <NavLink
+                to="/add-movie"
+                className="py-0 duration-300 rounded-none hover:text-accent px-3"
+              >
+                Add Movie
+              </NavLink>
+            </li>
+            <li className="">
+              <NavLink
+                to='/my-favorites'
+                className="py-0 duration-300 rounded-none hover:text-accent px-3"
+              >
+                My Favorites
+              </NavLink>
+            </li>
+           </>
+           }
               <li className="">
                 <NavLink
                 onClick={handleMenu}
@@ -160,7 +158,12 @@ const Navbar = () => {
                 Home
               </NavLink>
             </li>
-            <li className="">
+            
+
+           {
+           user && 
+           <>
+           <li className="">
               <NavLink
                 to="/all-movies"
                 className="py-0 duration-300  rounded-none hover:text-accent px-3"
@@ -184,6 +187,9 @@ const Navbar = () => {
                 My Favorites
               </NavLink>
             </li>
+           </>
+           }
+
             <li className="">
               <NavLink
                 to="/tv-show"

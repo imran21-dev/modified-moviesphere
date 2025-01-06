@@ -22,7 +22,7 @@ const CategorySection = () => {
                     <div className="text-left">
                         <h1 className="md:text-xl font-semibold">Action</h1>
                         <p className="text-xs md:text-sm md:pt-1 pb-1 md:pb-3">200+ Movies</p>
-                        <Link className="text-accent/90 gap-1 flex items-center text-[10px] md:text-sm ">View More <BsArrowRight className="md:mt-[2px]"/></Link>
+                        <Link to='/category/Action' className="text-accent/90 gap-1 flex items-center text-[10px] md:text-sm ">View More <BsArrowRight className="md:mt-[2px]"/></Link>
                     </div>
                 </div>
 
@@ -33,7 +33,7 @@ const CategorySection = () => {
                     <div className="text-left">
                         <h1 className="md:text-xl font-semibold">Fantasy</h1>
                         <p className="text-xs md:text-sm md:pt-1 pb-1 md:pb-3">640+ Movies</p>
-                        <Link className="text-accent/90 gap-1 flex items-center text-[10px] md:text-sm ">View More <BsArrowRight className="md:mt-[2px]"/></Link>
+                        <Link to='/category/Fantasy' className="text-accent/90 gap-1 flex items-center text-[10px] md:text-sm ">View More <BsArrowRight className="md:mt-[2px]"/></Link>
                     </div>
                 </div>
 
@@ -44,7 +44,7 @@ const CategorySection = () => {
                     <div className="text-left">
                         <h1 className="md:text-xl font-semibold">Comedy</h1>
                         <p className="text-xs md:text-sm md:pt-1 pb-1 md:pb-3">480+ Movies</p>
-                        <Link className="text-accent/90 gap-1 flex items-center text-[10px] md:text-sm ">View More <BsArrowRight className="md:mt-[2px]"/></Link>
+                        <Link to='/category/Comedy' className="text-accent/90 gap-1 flex items-center text-[10px] md:text-sm ">View More <BsArrowRight className="md:mt-[2px]"/></Link>
                     </div>
                 </div>
 
@@ -55,7 +55,7 @@ const CategorySection = () => {
                     <div className="text-left">
                         <h1 className="md:text-xl font-semibold">Drama</h1>
                         <p className="text-xs md:text-sm md:pt-1 pb-1 md:pb-3">510+ Movies</p>
-                        <Link className="text-accent/90 gap-1 flex items-center text-[10px] md:text-sm ">View More <BsArrowRight className="md:mt-[2px]"/></Link>
+                        <Link to='/category/Drama' className="text-accent/90 gap-1 flex items-center text-[10px] md:text-sm ">View More <BsArrowRight className="md:mt-[2px]"/></Link>
                     </div>
                 </div>
 
@@ -66,7 +66,7 @@ const CategorySection = () => {
                     <div className="text-left">
                         <h1 className="md:text-xl font-semibold">Sci-Fi</h1>
                         <p className="text-xs md:text-sm md:pt-1 pb-1 md:pb-3">511+ Movies</p>
-                        <Link className="text-accent/90 gap-1 flex items-center text-[10px] md:text-sm ">View More <BsArrowRight className="md:mt-[2px]"/></Link>
+                        <Link to='/category/Sci-Fi' className="text-accent/90 gap-1 flex items-center text-[10px] md:text-sm ">View More <BsArrowRight className="md:mt-[2px]"/></Link>
                     </div>
                 </div>
 
@@ -77,7 +77,7 @@ const CategorySection = () => {
                     <div className="text-left">
                         <h1 className="md:text-xl font-semibold">Animation</h1>
                         <p className="text-xs md:text-sm md:pt-1 pb-1 md:pb-3">511+ Movies</p>
-                        <Link className="text-accent/90 gap-1 flex items-center text-[10px] md:text-sm ">View More <BsArrowRight className="md:mt-[2px]"/></Link>
+                        <Link to='/category/Animation' className="text-accent/90 gap-1 flex items-center text-[10px] md:text-sm ">View More <BsArrowRight className="md:mt-[2px]"/></Link>
                     </div>
                 </div>
 
@@ -88,7 +88,7 @@ const CategorySection = () => {
                     <div className="text-left">
                         <h1 className="md:text-xl font-semibold">Adventure</h1>
                         <p className="text-xs md:text-sm md:pt-1 pb-1 md:pb-3">511+ Movies</p>
-                        <Link className="text-accent/90 gap-1 flex items-center text-[10px] md:text-sm ">View More <BsArrowRight className="md:mt-[2px]"/></Link>
+                        <Link to='/category/Adventure' className="text-accent/90 gap-1 flex items-center text-[10px] md:text-sm ">View More <BsArrowRight className="md:mt-[2px]"/></Link>
                     </div>
                 </div>
 
@@ -99,7 +99,7 @@ const CategorySection = () => {
                     <div className="text-left">
                         <h1 className="md:text-xl font-semibold">Romance</h1>
                         <p className="text-xs md:text-sm md:pt-1 pb-1 md:pb-3">211+ Movies</p>
-                        <Link className="text-accent/90 gap-1 flex items-center text-[10px] md:text-sm ">View More <BsArrowRight className="md:mt-[2px]"/></Link>
+                        <Link to='/category/Romance' className="text-accent/90 gap-1 flex items-center text-[10px] md:text-sm ">View More <BsArrowRight className="md:mt-[2px]"/></Link>
                     </div>
                 </div>
 
@@ -110,7 +110,7 @@ const CategorySection = () => {
                     <div className="text-left">
                         <h1 className="md:text-xl font-semibold">Horror</h1>
                         <p className="text-xs md:text-sm md:pt-1 pb-1 md:pb-3">654+ Movies</p>
-                        <Link className="text-accent/90 gap-1 flex items-center text-[10px] md:text-sm ">View More <BsArrowRight className="md:mt-[2px]"/></Link>
+                        <Link to='/category/Horror' className="text-accent/90 gap-1 flex items-center text-[10px] md:text-sm ">View More <BsArrowRight className="md:mt-[2px]"/></Link>
                     </div>
                 </div>
 
@@ -121,7 +121,7 @@ const CategorySection = () => {
                     <div className="text-left">
                         <h1 className="md:text-xl font-semibold">Thriller</h1>
                         <p className="text-xs md:text-sm md:pt-1 pb-1 md:pb-3">415+ Movies</p>
-                        <Link className="text-accent/90 gap-1 flex items-center text-[10px] md:text-sm ">View More <BsArrowRight className="md:mt-[2px]"/></Link>
+                        <Link to='/category/Thriller' className="text-accent/90 gap-1 flex items-center text-[10px] md:text-sm ">View More <BsArrowRight className="md:mt-[2px]"/></Link>
                     </div>
                 </div>
 

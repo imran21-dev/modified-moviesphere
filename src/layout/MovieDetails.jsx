@@ -1,29 +1,47 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { IoIosArrowRoundForward } from "react-icons/io";
 
 import { RxStopwatch } from "react-icons/rx";
 import Rating from "react-rating";
-import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { ThemeContext } from "../context/AssetsContext";
 import { Helmet } from "react-helmet-async";
+import { GridLoader } from "react-spinners";
 
 
 const MovieDetails = () => {
     const {user} = useContext(ThemeContext)
-    const email = user.email
-    const movie = useLoaderData()
+    const email = user?.email
+    const [movie, setMovie] = useState([])
+    const {id} = useParams()
+    const [loading, setLoading] = useState(true)
+   
+    useEffect(()=>{
+      setLoading(true)
+      window.scrollTo(0,0)
+      fetch(`https://server-side-nu-swart.vercel.app/movieDetails/${id}`)
+      .then(res => res.json())
+      .then(data => {
+          setMovie(data)
+          setLoading(false)
+
+      })
+  },[id])
+ 
  
     const navigate = useNavigate()
-    const {  poster,
-        title,
-        duration,
-        releaseYear,
-        ratingStar,
-        genreArray,
-        _id,
-        summary,} = movie
+
+    const poster = movie?.poster;
+    const title = movie?.title;
+    const duration = movie?.duration;
+    const releaseYear = movie?.releaseYear;
+    const ratingStar = movie?.ratingStar;
+    const genreArray = movie?.genreArray;
+    const _id = movie?._id;
+    const summary = movie?.summary;
+
     
     const defaultId = _id
 
@@ -134,16 +152,22 @@ const MovieDetails = () => {
             }
           });
     }
-    useEffect(()=>{
-      window.scrollTo(0,0)
-  },[])
+ 
     
     return (
         <div className="relative">
            <Helmet>
-                <title>Movie Details | {_id} | MovieSphere</title>
+                <title>{`Movie Details | ${_id} | MovieSphere`}</title>
             </Helmet>
+
+            {
+            loading ? <div className="h-screen flex justify-center items-center"><GridLoader
+            size={10}
+            color="#bebebe"
            
+            /></div> : 
+
+         <div>
          {
            movie &&   <div className="w-11/12 mx-auto relative z-10">
            <h1 className="text-2xl md:text-4xl font-semibold pt-24 pb-6">Details</h1>
@@ -172,7 +196,7 @@ const MovieDetails = () => {
                  }
                /> <span className="md:text-lg md:-mt-0 -mt-[2px]">({ratingStar})</span>
                 </div>
-                <h2 className="py-2">{genreArray.join(' | ')}</h2>
+                <h2 className="py-2">{genreArray?.join(' | ')}</h2>
                 <h1 className="font-bold"></h1>
                 <h2 className="flex truncate pt-1 items-center gap-2"><RxStopwatch className="text-xl"/> <span className="font-medium">Duration :</span>{duration} mins</h2>
                 <div className="pt-5 grid grid-cols-2 2xl:w-2/4 gap-6">
@@ -202,6 +226,9 @@ const MovieDetails = () => {
             <Link className="btn mt-10 bg-accent/90 text-white rounded-full border-none px-5 hover:bg-neutral/20 duration-300" to='/my-favorites'>Back to Favorites</Link>
          </div>
          }
+         </div>
+            }
+           
         </div>
     );
 };

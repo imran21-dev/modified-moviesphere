@@ -14,6 +14,9 @@ import { LuPenLine, LuUndo } from "react-icons/lu";
 
 const UpdateMovie = () => {
 const needToUpdateMovie = useLoaderData()
+ 
+
+
 const {poster, title, duration, summary,_id,email} = needToUpdateMovie
 const navigate = useNavigate()
 const [key, setKey] = useState(0);

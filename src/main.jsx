@@ -16,7 +16,7 @@ import Register from './layout/Register';
 import AddMoviePrivate from './private/AddMoviePrivate';
 import Login from './layout/Login';
 import AllMovies from './layout/AllMovies';
-import MovieDetailsPrivate from './private/MovieDetailsPrivate';
+
 import MovieDetails from './layout/MovieDetails';
 import FavouriteMoviesPrivate from './private/FavouriteMoviesPrivate';
 import FavouriteMovies from './layout/FavouriteMovies';
@@ -25,6 +25,9 @@ import UpdateMovie from './layout/UpdateMovie';
 import ErrorPage from './layout/ErrorPage';
 import TvShow from './layout/TvShow';
 import { HelmetProvider } from 'react-helmet-async';
+import MovieDetailsPrivate from './private/MovieDetailsPrivate';
+import AllMoviesPrivate from './private/AllMoviesPrivate';
+import CategoryMovie from './layout/CategoryMovie';
 
 const router = createBrowserRouter([
   {
@@ -34,7 +37,7 @@ const router = createBrowserRouter([
     children:[
       {
         path: '/',
-        loader : () => fetch('https://server-side-nu-swart.vercel.app/featured-movies'),
+        
         element: <Home></Home>,
       },
       {
@@ -51,18 +54,17 @@ const router = createBrowserRouter([
       },
       {
         path:'/all-movies',
-        element: <AllMovies></AllMovies>,
-        loader: () => fetch('https://server-side-nu-swart.vercel.app/')
+        element: <AllMoviesPrivate><AllMovies></AllMovies></AllMoviesPrivate>,
+       
       },
       {
         path: '/movie-details/:id',
-        loader: ({params}) => fetch(`https://server-side-nu-swart.vercel.app/movieDetails/${params.id}`),
         element: <MovieDetailsPrivate><MovieDetails></MovieDetails></MovieDetailsPrivate>,
       },
       {
         path: '/my-favorites',
         element: <FavouriteMoviesPrivate><FavouriteMovies></FavouriteMovies></FavouriteMoviesPrivate>,
-        loader: () => fetch('https://server-side-nu-swart.vercel.app/get-favourites')
+        
       },
       {
         path: '/update-movie/:id',
@@ -72,6 +74,10 @@ const router = createBrowserRouter([
       {
         path: 'tv-show',
         element: <TvShow></TvShow>
+      },
+      {
+        path: '/category/:id',
+        element: <CategoryMovie></CategoryMovie>
       }
     ]
   },

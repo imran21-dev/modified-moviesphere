@@ -101,7 +101,7 @@ const Slider = () => {
         loop={true}
         spaceBetween={30}
         slidesPerView={1}
-        className="mySwiper h-80 md:h-screen z-0 flex justify-center"
+        className="mySwiper h-80 md:h-[700px] z-0 flex justify-center"
       >
         {
         movies.map(movie => <SwiperSlide key={movie.name}>
