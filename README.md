@@ -8,7 +8,7 @@
 MovieSphere is a web app that allows users to seamlessly upload, update, delete, and view detailed information about movies. It provides a straightforward and efficient platform for managing movie-related content.
 
 - **Live Link :** [https://moviesharp-ff843.web.app/](https://moviesharp-ff843.web.app/)
-- **Project's Docs :** [https://docs.google.com/document/d/1ozMfbFO1Tv1Gzu0r7Bse_ue_biNIQJhNW-Bu3CTm_Hc/edit?tab=t.0]([https://moviesharp-ff843.web.app/](https://docs.google.com/document/d/1ozMfbFO1Tv1Gzu0r7Bse_ue_biNIQJhNW-Bu3CTm_Hc/edit?tab=t.0))
+- **Project's Docs :** [https://docs.google.com/document/d/1ozMfbFO1Tv1Gzu0r7Bse_ue_biNIQJhNW-Bu3CTm_Hc/edit?tab=t.0](https://docs.google.com/document/d/1ozMfbFO1Tv1Gzu0r7Bse_ue_biNIQJhNW-Bu3CTm_Hc/edit?tab=t.0)
 
 
 - **Features -**
@@ -53,7 +53,7 @@ MovieSphere is a web app that allows users to seamlessly upload, update, delete,
 - swiper: ^11.1.15
 
   ### Dev Dependencies
-  - @eslint/js: ^9.15.0  
+- @eslint/js: ^9.15.0  
 - @types/react: ^18.3.12  
 - @types/react-dom: ^18.3.1  
 - @vitejs/plugin-react: ^4.3.4  
