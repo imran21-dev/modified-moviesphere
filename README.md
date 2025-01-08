@@ -1,9 +1,9 @@
 
-## Assignment-10
+## Project Name - MovieSphere
 
 
 
-- **Name :** [MovieSphere](https://moviesharp-ff843.web.app/)
+
 ## Purpose of the Website
 MovieSphere is a web app that allows users to seamlessly upload, update, delete, and view detailed information about movies. It provides a straightforward and efficient platform for managing movie-related content.
 
