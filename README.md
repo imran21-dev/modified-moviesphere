@@ -1,6 +1,6 @@
 
 ## Project Name - MovieSphere
-
+![MovieSphere](https://i.postimg.cc/zGfGzbWJ/Minimalist-Website-Launch-Computer-Mockup-Instagram-Post-1.jpg)
 
 
 
